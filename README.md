@@ -1,8 +1,11 @@
 # android 
 ***
-## List
 ***
-### 1. Layout
+***
+List
+***
+***
+## Layout
 1. LinearLayout
 2. RelativeLayout
 3. FrameLayout
@@ -10,7 +13,7 @@
 5. GridLayout
 6. ConstrainLayout
 ***
-### 2. Alert
+## Alert
 1. 토스트(Toast)
 2. 알림창(AlertDialog)
 3. 목록(AlertDialog)
@@ -23,11 +26,14 @@
 *** 
 ***
 ***
-##
-1. Layout
-   1. LinearLayout
-      1. LinearLayout의 속성  
-     ```LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.```     
+  
+***
+***
+## Layout
+1. LinearLayout
+   1. LinearLayout의 속성 및 값
+   
+     ```LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.```    
    2. RelativeLayout
    3. FrameLayout
    4. TableLayout
