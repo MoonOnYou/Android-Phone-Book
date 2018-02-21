@@ -27,9 +27,7 @@
 1. Layout
    1. LinearLayout
       1. LinearLayout의 속성
-     [[TIP]]
-     LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.
-     [[/TIP]]
+     ```LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.```   
    2. RelativeLayout
    3. FrameLayout
    4. TableLayout
