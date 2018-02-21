@@ -15,7 +15,7 @@
 2. 알림창(AlertDialog)
 3. 목록(AlertDialog)
 4. 커스텀  다이얼로그(AlertDialog)
-5. 프로그래스 다이얼로그(ProgressDialog)\
+5. 프로그래스 다이얼로그(ProgressDialog)
 6. 날짜 선택(DatePickerDialog)
 7. 시간 선택(TimePickerDialog)
 8. 진동(vibrate)
@@ -24,14 +24,14 @@
 ***
 ***
 ##
-### 1. Layout <br>
->  1. LinearLayout <br>
- * 1. LinearLayout의 속성*
-1. 2. RelativeLayout
-* 1.3 FrameLayout
-* 1.4 TableLayout
-* 1.5 GridLayout
-* 1.6 ConstrainLayout
+1. Layout
+   1. LinearLayout
+      1. LinearLayout의 속성
+   2. RelativeLayout
+   3. FrameLayout
+   4. TableLayout
+   5. GridLayout
+   6. ConstrainLayout
 ***
 ### 2. Alert
 * 2.1 토스트(Toast)
