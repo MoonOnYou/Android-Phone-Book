@@ -25,7 +25,7 @@
 ***
 ### Layout
 * LinearLayout
- * LinearLayout의 속성
+*LinearLayout의 속성*
  >
 * RelativeLayout
 * FrameLayout
