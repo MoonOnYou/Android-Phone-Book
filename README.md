@@ -31,12 +31,34 @@ Main text
 ***
 ## Layout
 1. LinearLayout
-   1. LinearLayout의 속성 및 값
-      * orientation
-         ```
-         - vertical
-         - horiznotal
-         ```
+   * LinearLayout의 속성 및 값
+        ```
+        orientation
+           
+           -vertical
+           -horiznotal
+        ``` 
+        ```
+        Layout_gravity
+
+           -left
+           -right
+           -top
+           -bottom
+        ```
+        ```
+        gravity
+
+           -left
+           -right
+           -top
+           -bottom
+        ```
+
+   * LinearLayout의 특징
+        ```
+        -orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다
+        ```
 
      ```LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.```    
    
