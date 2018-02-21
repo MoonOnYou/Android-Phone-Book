@@ -25,7 +25,7 @@
 ***
 ##
 ### 1. Layout <br>
-* 1.1 LinearLayout <br>
+1.1 LinearLayout <br>
 *1.1-1 LinearLayout의 속성*
 * 1.2 RelativeLayout
 * 1.3 FrameLayout
