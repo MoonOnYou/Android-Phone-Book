@@ -26,8 +26,8 @@
 ##
 1. Layout
    1. LinearLayout
-      1. LinearLayout의 속성
-     ```LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.```   
+      1. LinearLayout의 속성  
+     ```LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.```     
    2. RelativeLayout
    3. FrameLayout
    4. TableLayout
@@ -51,7 +51,7 @@
 
 
 ## brackets
-1. Ctrl + D : 한줄 복사 및 생성
+1. Ctrl + D : 한줄 복사 및 생성               
     * 모든 단축키에 Shift를 더하면 반대가 된다.
         ```
         예시
