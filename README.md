@@ -1,8 +1,10 @@
+***
+***
+***
 # android 
 ***
 ***
-***
-List
+_List_
 ***
 ***
 ## Layout
@@ -23,10 +25,10 @@ List
 7. 시간 선택(TimePickerDialog)
 8. 진동(vibrate)
 9. 소리(Ringtone)
-*** 
+
 ***
 ***
-Main text
+_Main text_
 ***
 ***
 ## Layout
@@ -36,17 +38,10 @@ Main text
         orientation
            
            -vertical
-           -horiznotal
+           -horiznotal 
         ``` 
         ```
         Layout_gravity
-
-           -left
-           -right
-           -top
-           -bottom
-        ```
-        ```
         gravity
 
            -left
@@ -54,16 +49,28 @@ Main text
            -top
            -bottom
         ```
-
-   * LinearLayout의 특징
         ```
-        -orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다
+        weight
+        
+           -각뷰에 상대적인 숫자를 값으로 줌( %개념 )
         ```
 
-     ```LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.```    
-   
-      
+   * LinearLayout의 특징,TIP   
+       ```
+        -orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.
+        - 단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.
+        -LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.
+        ```  
+        
 2. RelativeLayout
+   * RelativeLayout의 속성 및 값
+      ```
+      android:layout_above
+      android:layout_below
+      android:layout_toLeftOf
+      android:layout_toRightOf
+         -상대성의 의미를 부여할View의 이름을 값으로 줌 
+     ```    
 3. FrameLayout
 4. TableLayout
 5. GridLayout
