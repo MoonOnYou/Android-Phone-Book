@@ -55,21 +55,21 @@ _Main text_
 
         ```
    * LinearLayout의 특징
-        ```
-        -orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.
-        -단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.
-        -LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.
-        ```   
+        
+        * orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.
+        * 단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.
+        * LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.
+        
 2. RelativeLayout
     * RelativeLayout의 속성 및 값
-    ```
-    android:layout_above
-    android:layout_below
-    android:layout_toLeftOf
-    android:layout_toRightOf
+        ```
+        android:layout_above
+        android:layout_below
+        android:layout_toLeftOf
+        android:layout_toRightOf
 
-        -상대성의 의미를 부여할 다른 View의 이름을 값으로 줌 (그 View를 기준으로 현재의 View위치가 결정)
-    ```
+            -상대성의 의미를 부여할 다른 View의 이름을 값으로 줌 (그 View를 기준으로 현재의 View위치가 결정)
+        ```
 3. FrameLayout
     * FrameLayout의 속성 및 값
 4. TableLayout
