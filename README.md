@@ -1,7 +1,7 @@
 ***
 ***
 ***
-# android 
+# android
 ***
 ***
 _List_
@@ -24,8 +24,7 @@ _List_
 6. 날짜 선택(DatePickerDialog)
 7. 시간 선택(TimePickerDialog)
 8. 진동(vibrate)
-9. 소리(Ringtone)
-
+9. 소리(Ringtone) 
 ***
 ***
 _Main text_
@@ -33,48 +32,52 @@ _Main text_
 ***
 ## Layout
 1. LinearLayout
-   * LinearLayout의 속성 및 값
+    * LinearLayout의 속성 및 값
         ```
         orientation
            
-           -vertical
-           -horiznotal 
-        ```
+            -vertical
+            -horiznotal
+        ``` 
         ```
         Layout_gravity
         gravity
 
-           -left
-           -right
-           -top
-           -bottom
+            -left
+            -right
+            -top
+            -bottom
         ```
         ```
         weight
-        
-           -각뷰에 상대적인 숫자를 값으로 줌( %개념 )
+
+            -각뷰가 차지하는 면적에 맞게 상대적인 숫자를 값으로 줌( %개념 )
+
         ```
-   * LinearLayout의 특징, tip
-      ```
-      orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.   
-      단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.   
-      LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.   
-      ```  
-        
+   * LinearLayout의 특징
+        ```
+        -orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.
+        -단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.
+        -LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.
+        ```   
 2. RelativeLayout
-   * RelativeLayout의 속성 및 값
-      ```
-      android:layout_above
-      android:layout_below
-      android:layout_toLeftOf
-      android:layout_toRightOf
-      
-         -상대성의 의미를 부여할View의 이름을 값으로 줌
-      ```    
+    * RelativeLayout의 속성 및 값
+    ```
+    android:layout_above
+    android:layout_below
+    android:layout_toLeftOf
+    android:layout_toRightOf
+
+        -상대성의 의미를 부여할 다른 View의 이름을 값으로 줌 (그 View를 기준으로 현재의 View위치가 결정)
+    ```
 3. FrameLayout
+    * FrameLayout의 속성 및 값
 4. TableLayout
+    * TableLayout의 속성 및 값
 5. GridLayout
+    * GridLayout의 속성 및 값
 6. ConstrainLayout
+    * ConstrainLayout의 속성 및 값
 ***
 ### Alert
 1. 토스트(Toast)
