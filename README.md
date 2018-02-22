@@ -54,12 +54,12 @@ _Main text_
         
            -각뷰에 상대적인 숫자를 값으로 줌( %개념 )
         ```
-   * LinearLayout의 특징, tip
-       ```
-        -orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.   
-        - 단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.   
-        -LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.   
-        ```  
+   * LinearLayout의 특징, tip
+      ```
+      orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.   
+      단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.   
+      LinearLayout 과  만 방향을 지정하는 orientation속성을 제공한다.   
+      ```  
         
 2. RelativeLayout
    * RelativeLayout의 속성 및 값
