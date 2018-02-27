@@ -33,7 +33,12 @@ _Main text_
 ***
 ## Layout
 1. LinearLayout
-    * LinearLayout의 속성 및 값
+   * Linear의 사전적 의미
+       * 선의, 직선의, 선 모양의, 일직선으로 늘어선
+       * 1차원의, 길이와 관계하는
+       * 실 모양의
+
+   * LinearLayout의 속성 및 값
         ```
         * orientation
         뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향 
@@ -166,8 +171,37 @@ _Main text_
 > LinearLayout 과 GridLayout만 방향을 지정하는 orientation속성을 제공한다.
 
 > orientation이 horizontal이면 columnCount만 의미가 있고 ,vertical이면 rowCount만 의미가 있다.
+
+> TableLayout과 GridLayout 추가된 뷰의 layout_width,layout_heigth 값은 기본 wrap_content로 지정되0므로, 따로 설정하지 않아도 되지만 스마트폰의 가로크기 호환성을 위해서 layout_width를 모두 0dp로 주고, layout_weight에 따라 화면에 나오게 처리하는 것이 좋다.
+
 6. ConstrainLayout
-    * ConstrainLayout의 속성 및 값
+    * Constraint의 사전적 의미
+        * 강제, 압박, 속박
+        * 거북스러움, 어색함
+        * (감정·욕망의) 억제
+        * 제약, 제한
+
+    * ConstrainLayout의 속성 및 값
+       ```
+       * layout_constraintX_Y
+       해당 뷰의
+       * layout_constraintLeft_toLeftOf
+       * layout_constraintLeft_toRightOf
+       * layout_constraintRight_toLeftOf
+       * layout_constraintRight_toRightOf
+       * layout_constraintTop_toTopOf
+       * layout_constraintTop_toBottomOf
+       * layout_constraintBottom_toTopOf
+       * layout_constraintBottom_toBottomOf
+       * layout_constraintStart_toStartOf
+       * layout_constraintStart_toEndOf
+       * layout_constraintEnd_toStarOf
+       * layout_constraintEnd_toEndOf
+       * layout_constraintBaseline_toBaselineOf
+       
+          - 상대뷰의 id
+          - parent (상위 뷰)
+       ```
 7. TabHost
 
     * TabHost의 구조
@@ -177,6 +211,7 @@ _Main text_
 
     * TabHost의 id값   
     다음의 아이디 값은 변경 할 수 없다.
+    
         1. TabWidget의 id값: android:id="@android:id/tabs"
         2. FrameLayout의 id값: android:id="@android:id/tabcontent"
     
