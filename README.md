@@ -33,24 +33,25 @@ _Main text_
 ***
 ## Layout
 1. LinearLayout
-   * Linear의 사전적 의미
-       * 선의, 직선의, 선 모양의, 일직선으로 늘어선
-       * 1차원의, 길이와 관계하는
-       * 실 모양의
+    * Linear의 사전적 의미   
 
-   * LinearLayout의 속성 및 값
+        * 선의, 직선의, 선 모양의, 일직선으로 늘어선
+        * 1차원의, 길이와 관계하는
+        * 실 모양의
+
+    * LinearLayout의 속성 및 값
         ```
-        * orientation
+        * android:orientation
         뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향 
 
             -vertical
             -horiznotal
         ``` 
         ```
-        * gravity
+        * android:gravity
         뷰의 내용을 뷰 영역 내에서 어디에 나타낼지 값으로 지정
 
-        * Layout_gravity
+        * android:Layout_gravity
         LinearLayout영역 내에서 어디에 나타낼지 값으로 지정
 
             -left
@@ -59,7 +60,7 @@ _Main text_
             -bottom
         ```   
         ```
-        * weight
+        * android:weight
         각 뷰의 값을 기준으로 %개념으로 확장되 여백을 차지하게 되는 속성 
 
             -각뷰가 차지하는 면적에 맞게 상대적인 숫자를 값으로 줌
@@ -134,35 +135,35 @@ _Main text_
 
     * GridLayout의 속성 및 값
         ```
-        * orientation
+        * android:orientation
         뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향
 
             -vertical
             -horizontal
         ```
         ```
-        * columnCount
+        * android:columnCount
         orientation이 가로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
         
-        * rowCount
+        * android:rowCount
         orientation이 세로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
         ```
         ```
-        * layout_column 
+        * android:layout_column 
         뷰가 위치할 열 인덱스 지정
 
-        * layout_row
+        * android:layout_row
         뷰가 위치할 행 인덱스 지정
         ```
         ```
-        * layout_columnSpan
+        * android:layout_columnSpan
         가로방향으로 여러열을 하나의 뷰가 차지하고자 할 때
 
-        * layout_rowSpan
+        * android:layout_rowSpan
         세로방향으로 여러행을 하나의 뷰가 차지하고자 할 때
         ```
         ```
-        * layout_gravity
+        * android:layout_gravity
         span으로 확장된 영역 전체를 차지하게 나오게 할 때
 
             -fill
@@ -174,34 +175,78 @@ _Main text_
 
 > TableLayout과 GridLayout 추가된 뷰의 layout_width,layout_heigth 값은 기본 wrap_content로 지정되0므로, 따로 설정하지 않아도 되지만 스마트폰의 가로크기 호환성을 위해서 layout_width를 모두 0dp로 주고, layout_weight에 따라 화면에 나오게 처리하는 것이 좋다.
 
-6. ConstrainLayout
-    * Constraint의 사전적 의미
-        * 강제, 압박, 속박
+6. ConstrainLayout   
+    * Constraint의 사전적 의미   
+        * 강제, 압박, 속박
         * 거북스러움, 어색함
         * (감정·욕망의) 억제
         * 제약, 제한
 
-    * ConstrainLayout의 속성 및 값
-       ```
-       * layout_constraintX_Y
-       해당 뷰의 X변에 맞다도록 상대 뷰의 Y쪽에 위치하도록 한다.
-       * layout_constraintLeft_toLeftOf
-       * layout_constraintLeft_toRightOf
-       * layout_constraintRight_toLeftOf
-       * layout_constraintRight_toRightOf
-       * layout_constraintTop_toTopOf
-       * layout_constraintTop_toBottomOf
-       * layout_constraintBottom_toTopOf
-       * layout_constraintBottom_toBottomOf
-       * layout_constraintStart_toStartOf
-       * layout_constraintStart_toEndOf
-       * layout_constraintEnd_toStarOf
-       * layout_constraintEnd_toEndOf
-       * layout_constraintBaseline_toBaselineOf
+    * ConstrainLayout의 속성 및 값
+        ```
+        * app:layout_constraintX_Y   
+        해당 뷰의 X변에 맞다도록 상대 뷰의 Y쪽에 위치하도록 한다.
+
+        * app:layout_constraintLeft_toLeftOf
+        * app:layout_constraintLeft_toRightOf
+        * app:layout_constraintRight_toLeftOf
+        * app:layout_constraintRight_toRightOf
+        * app:layout_constraintTop_toTopOf
+        * app:layout_constraintTop_toBottomOf
+        * app:layout_constraintBottom_toTopOf
+        * app:layout_constraintBottom_toBottomOf
+        * app:layout_constraintStart_toStartOf
+        * app:layout_constraintStart_toEndOf
+        * app:layout_constraintEnd_toStarOf
+        * app:layout_constraintEnd_toEndOf
+        * app:layout_constraintBaseline_toBaselineOf
        
-          - 상대뷰의 id
-          - parent (상위 뷰)
-       ```
+            - 상대뷰의 id
+            - parent (상위 뷰)
+        ```
+        ```
+        * app:layout_constraintHorizontal_bias
+        가로 치우침 조절
+
+        * app:layout_constraintvertical_bias
+        세로 치우침 조절
+
+            - 소수점을 값으로 준다
+        ```
+        ```
+        * android:layout_marginLeft
+        * android:layout_marginRight
+        * android:layout_marginTop
+        * android:layout_marginBottom
+        * android:layout_marginStart
+        * android:layout_marginEnd
+        뷰와 뷰 사이의 간격을 표현하기 위한 속성 margin
+
+            -  X dp , X px 등 의 margin값 
+        ```
+        ```
+        * app:layout_goneMarginLeft
+        * app:layout_goneMarginRight
+        * app:layout_goneMarginTop
+        * app:layout_goneMarginBottom
+        * app:layout_goneMarginStart
+        * app:layout_goneMarginEnd
+        상대 뷰가 gone 상태일 때 margin값을 다르게 설정하여 상대 뷰가 보이지 않는 상황에 대응 할 수 있다.
+
+            -  X dp , X px 등 의 margin값
+        ```
+        ```
+        * app:layout_constraintDimensionRatio
+        다른 constraint속성이 함께 지정된 경우에만 사용가능 , layout_width나 layout_height 중 하나 이상이 "0dp"일 경우만 사용가능
+
+            - 기준 선택 (H 또는 W ) , 비율 (ex. 3:4)
+        ```
+    * ComstraintLayout 사용 TIP, 보충설명
+> layout_constraintLeft_toLeftOf="parent"는 '뷰의 왼쪽 변을 부모의 왼쪽에 붙여라'는 뜻이고, layout_constraintRight_toRightOf="parent"는 '뷰의 오른쪽 변을 부모의 오른쪽에 붙여라'는 뜻인데 ,이 둘을 같이 사용하면 뷰는 화면 중앙에 위치하게 된다.
+
+> app:layout_constraintHorizontal_bias ="0.2" 를 주면 왼쪽에서 20% 위치에 나타난다.
+
+>app:layout_constraintDimensionRatio="H,3:4"의 기준은 가로이고 가로의 길이가 3일 때 세로의 길이는 4라는 것을 뜻한다.
 7. TabHost
 
     * TabHost의 구조
