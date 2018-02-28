@@ -184,7 +184,7 @@ _Main text_
     * ConstrainLayout의 속성 및 값
        ```
        * layout_constraintX_Y
-       해당 뷰의
+       해당 뷰의 X변에 맞다도록 상대 뷰의 Y쪽에 위치하도록 한다.
        * layout_constraintLeft_toLeftOf
        * layout_constraintLeft_toRightOf
        * layout_constraintRight_toLeftOf
