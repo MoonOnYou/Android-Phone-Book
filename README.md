@@ -120,8 +120,16 @@ _Main text_
             -true
         ```
 3. FrameLayout
-    * FrameLayout의 속성 및 값
+    * FrameLayout의 특징
+        * FrameLayout은 자체의 특별한 속성이 없으며, 레이아웃에 포함된 뷰들을 같은 영역에 겹쳐서 배치할 때 사용한다.
+        * 따라서 visibiliy속성이 많이 쓰인다.
+
 4. TableLayout
+    * TableLayout의 특징
+        * 각각의 뷰를 테이블 구조로 나열 할 때 씀
+        * 각각의 행(row)을 TableRow로 표현해 주어야함
+        * 하나의 뷰가 여러 셀을 차지 할 수도 있고, 여백이 발생 할 경우 열(기둥)을 확장 시킬수도 있다.
+        
     * TableLayout의 속성들과 쓰임의 예
         ```
         * android:shrinkColumns="0,1" : 화면크기를 벗어나는 경우 인덱스 0,1의 열 크기를 줄임
