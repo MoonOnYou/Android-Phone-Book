@@ -28,7 +28,6 @@ _List_
 9. 소리(Ringtone) 
 ***
 ## JAVA
-* 
 ***
 ***
 _Main text_
@@ -75,8 +74,9 @@ _Main text_
 
 > 단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.
 
-> LinearLayout 과 GridLayout만 방향을 지정하는 orientation속성을 제공한다.
-        
+> LinearLayout 과 GridLayout만 방향을 지정하는 orientation속성을 제공한다.   
+           
+
 2. RelativeLayout
     * RelativeLayout의 속성 및 값
         ```
@@ -283,29 +283,29 @@ _Main text_
     세번째 매개변수는 LENGTH_SHORT(3초) 또는 LENGTH_LONG(5초)만 지정할 수 있으며 임의의 숫자값을 지정할 수 없다.
 
         * makeText(Context context,int resId,int duration)
-        * makeText(Context context,CharSequence text,int duration)       
-        ```java
-        * 예시
+        * makeText(Context context,CharSequence text,int duration)
 
-            Toast t Toast.makeText(this,"hi",Toast.LENGTH_SHORT);
+            * 예시       
+    ```java
+    Toast t Toast.makeText(this,"hi",Toast.LENGTH_SHORT);
 
-            t.show(); 
-        ```
+    t.show(); 
+    ```
     * 토스트 추가 설정 함수
 
-        * setDuration(int duration)
+        * setDuration(int duration)   
         토스트가 보이는 시간 설정
 
-        * setText(int resId)
+        * setText(int resId)   
         원하는 글을 토스트로 띄우기
 
-        * setView(View view)
+        * setView(View view)   
         원하는 뷰를 토스트로 띄우기
 
-        * setGravity(int gravity,int xOffset,int yOffset)
+        * setGravity(int gravity,int xOffset,int yOffset)   
         토스트 위치조절 가능
 
-        * setMargin(float horizontalMargin,float verticalMargin)
+        * setMargin(float horizontalMargin,float verticalMargin)   
         토스트 위치조절 가능
 
 2. 알림창(AlertDialog)
@@ -318,62 +318,60 @@ _Main text_
     
     * 주의 사항   
     Permission을 설정하지 않으면 진동이 울리는 순간 오류가 발생하여 앱이 자동으로 종료된다.
-        ```
+
         * Permission의 뜻
-            - 허가
-        ```
-        ```JAVA
-        * 퍼미션 설정하기 
-            - AndroidManifest.xml에서 설정
-            <uses-permission/*스페이스*/android:name="android.permissoin.VIBRATE"/>
-        ```    
-    * JAVA 코드   
+        허가
 
-        ```java
-        * 진동 울리기   
-        virbrate()의 매개변수는 진동이 울리는 시간이다. 1000으로 설정하면 1초 동안 울리는 것.
+        * 퍼미션 설정하기   
+        AndroidManifest.xml에서 설정
+    ```java
+    <uses-permission android:name="android.permissoin.VIBRATE"/>
+    ```           
+    * 진동 울리기   
+    virbrate()의 매개변수는 진동이 울리는 시간이다. 1000으로 설정하면 1초 동안 울리는 것.
+    ```java
+    Vibrator vib =(Vibrator)getSystemService(VIBRATOR_SERVICE);
+                
+    vir.vibrate(1000);
+    ```   
 
-            Vibrator vid =(Vibrator)getSystemService(VIBRATOR_SERVICE);
-            
-            vir.vibrate(1000);
-        ```
-        ```java
-        * 다양하게 진동 울리기
 
-        long[]의 배열에서 홀수번째 값은 대기시간, 짝수번째 값은 진동이 울리는 시간이다.
+    * 다양하게 진동 울리기
 
-        두 번째 매개변수에는 진동울리기 반복 횟수 값을 주면 되는데 '0'을 주면 코드에서 cancel할 때 까지 무한반복 진동하고, '-1'로 주면 한번만 진동한다.
+    long[]의 배열에서 홀수번째 값은 대기시간, 짝수번째 값은 진동이 울리는 시간이다.
 
-            Vibrator vib=(Vibrator)getSystemService(VIBRATOR_SERVICE);
+    두 번째 매개변수에는 진동울리기 반복 횟수 값을 주면 되는데 0을 주면 코드에서 cancel할 때 까지 무한반복 진동하고, -1로 주면 한번만 진동한다.   
+     
+     ```java
+    Vibrator vib=(Vibrator)getSystemService(VIBRATOR_SERVICE);
 
-            vib.vibrate(new long[]{500,1000,500,1000},-1);
-        ```
- 
+    vib.vibrate(new long[]{500,1000,500,1000},-1);
+    ``` 
 9. 소리(Ringtone)
 
     * 스마트폰에 내장되 효과음 사용하기   
-
     효과음은 RingtoneManager의 getDefaultUri()함수를 이용하여 획득한다.    
+    NOTIFICATION뿐 아니라, ALATM, RINGTONE등 이 있다.   
+     ```
+    Uri notification =RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-    NOTIFICATION뿐 아니라, ALATM, RINGTONE등 이 있다.
+    Ringtone ringtone =RingtoneManager.getRingtone(getApplicationContext(),notification);
 
-        ```java
-        Uri notification =RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+    ringtone.paly();
+    ```
 
-        Ringtone ringtone =RingtoneManager.getRingtone(getApplicationContext(),notification);
-
-        ringtone.paly();
-        ```
-    * 개발자가 사용하고 싶은 효과음 사용하기
+    * 개발자가 사용하고 싶은 효과음 사용하기   
     res하위의 raw폴더를 이용해야 한다.
 
-        ```java
-        MadiaPlayer player= MediaPlayer.create(this,R.raw.fallbacking);
+    ```java
+    MadiaPlayer player= MediaPlayer.create(this,R.raw.fallbacking);
 
-        player.start();
-        ```
+    player.start();
+    ```
 ***
+
 JAVA   
+
 1. 
     SystemService를 이용 할 때는 시작 작업없이 getSystemService()함수로 획득하여 이용가능 하다.
 *** 
