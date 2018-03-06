@@ -27,6 +27,11 @@ _List_
 8. 진동(vibrate)
 9. 소리(Ringtone) 
 ***
+## 사용자 이벤트 처리
+0. 이벤트 모델 공통점
+1. 델리게이션 이벤트 모델 (Delegation Event Model)
+2. 하이어라키 이벤트 모델 (Hierarchy Event Model)
+***
 ## JAVA
 ***
 ***
@@ -276,7 +281,7 @@ _Main text_
 
 > "@+id/name"은 id값을 앱의 R.java파일에 등록하여 이용하겠다는 의미이고, "@android:id/tabs"는 안드로이드 라이브러이의 R.java파일에 등록된 것을 이용하겠다는 의미이다.
 ***
-### Alert
+## Alert
 1. 토스트(Toast)
 
     * 토스트 기본함수   
@@ -319,7 +324,7 @@ _Main text_
     * 주의 사항   
     Permission을 설정하지 않으면 진동이 울리는 순간 오류가 발생하여 앱이 자동으로 종료된다.
 
-        * Permission의 뜻
+        * Permission의 뜻   
         허가
 
         * 퍼미션 설정하기   
@@ -336,10 +341,8 @@ _Main text_
     ```   
 
 
-    * 다양하게 진동 울리기
-
-    long[]의 배열에서 홀수번째 값은 대기시간, 짝수번째 값은 진동이 울리는 시간이다.
-
+    * 다양하게 진동 울리기   
+    long[]의 배열에서 홀수번째 값은 대기시간, 짝수번째 값은 진동이 울리는 시간이다.   
     두 번째 매개변수에는 진동울리기 반복 횟수 값을 주면 되는데 0을 주면 코드에서 cancel할 때 까지 무한반복 진동하고, -1로 주면 한번만 진동한다.   
      
      ```java
@@ -369,11 +372,104 @@ _Main text_
     player.start();
     ```
 ***
+## 사용자 이벤트 처리   
+1. 이벤트 모델 공통점   
+이벤트 소스와 이벤트 핸들러를 setOnXXXListener()함수로 연결하고 이벤트 핸들러는 OnXXXListener를 구현하여 작성.
+    * 이벤드 프로그램 구조
 
-JAVA   
+        1. 이벤트 소스(Event Source): 이벤트가 발생한 뷰 객체
+        2. 이벤트 핸들러(Event Handler): 이벤트 처리 내용을 가지는 객체
+        3. 리스너(Listener): 이벤트 소스와 이벤트 핸들러를 연결하는 작업
+
+    * 주요 이벤트
+        * OnClickListener   
+        뷰 클릭 시 발생하는 이밴트   
+        모든뷰에 적용 가능하다.
+
+        * OnLongClickListener   
+        뷰를 오래 클릭했을 때 발생하는 이벤트   
+        모든뷰에 적용 가능하다.
+        롱 클릭이벤트를 뷰에 적용하려면 setOnLongClickListener()메서드 이용
+
+        * OnCheckedChangeListener   
+        CheckBox의 상태 변경 이밴트
+        
+        * OnItemClickListener    
+        ListView의 항목 선택 이벤트
+        
+        * OnDateSetListener    
+        DatePicker의 날짜 선택 이벤트
+        
+        * OnTimeSetListener    
+        TimePicker의 시간 선택 이벤트 
+    ```java
+    btn.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+
+        }
+    });
+    ```
+    ```java
+    btn.setOnLongClickListener(new View.OnLongClickListener(){
+        @Override
+        public boolean onLongClick(View v){
+            return false;
+        }
+    });
+    ```
+    ```java
+    checkBox.setOnCheckedChangListener(new CompoundButton.OnCheckedChangeListener(){
+        @Overrid
+        public void onCheckedChanged(CompoundButton buttonView,booleab isChecked){
+
+        }
+    });
+    ```
+2. 델리게이션 이벤트 모델 (Delegation Event Model)   
+뷰에서 발생하는 이벤트를 처리하기 위한 모델   
+이벤트를 명료 하게 처리하기 위한 모델
+
+    * 델리게이션 (Delegation)의 사전적 의미   
+        * 대표 임명, (권력 등의) 위임   
+        * 대표단,각 주(州)를 대표하는 국회의원
+        * 대표 파견   
+        
+    * java코드
+        1. vibrateCheckView객체에서 CheckedCahngeEvent가 발생하면 
+        2. MyEventHandler클래스 객체를 실행하여 이벤트를 처리하라
+        3. (MyEventHandler를 개발자 만들어야 하며, 반드시 지정된 인터페이스를 구현해야함)    
+    ```java
+    1,2번 
+
+    vibrateCheckView.setOnCeckedChangeListener(new MyEventHandler());
+     ```    
+    ```java
+    3번 
+
+    class MyEventHandler implements CompoundButton.OnCheckedChangeListener{
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView,boolean isChecked){
+
+        }
+    }
+    ```
+
+
+3. 하이어라키 이벤트 모델 (Hierarchy Event Model)   
+액티비티에서 발생하는 사용자의 터치나 키 이벤트를 직접 처리하기 위한 모델
+
+    * 하이어라키 (Hierarchy)의 사전적 의미      
+        * 계층제, 계급제   
+        * 계층,분류의 체계
+        * 권력자 집단,권력자 집단에 의한 통치, 엘리트
+        
+***
+## JAVA   
 
 1. 
     SystemService를 이용 할 때는 시작 작업없이 getSystemService()함수로 획득하여 이용가능 하다.
+2. 안드로이드 자바코드 중 "setOn###Listener()"와 같은 구문은 이벤트 소스와 이벤트 핸들러를 리스너로 연결하는 부분이다.
 *** 
 ***
 ***
