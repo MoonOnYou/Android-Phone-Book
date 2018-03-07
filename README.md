@@ -56,8 +56,8 @@ _Main text_
         * android:orientation
         | 뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향 
 
-            -vertical
-            -horiznotal
+            - vertical
+            - horiznotal
         ``` 
         ```
         * android:gravity
@@ -66,16 +66,16 @@ _Main text_
         * android:Layout_gravity
         | LinearLayout영역 내에서 어디에 나타낼지 값으로 지정
 
-            -left
-            -right
-            -top
-            -bottom
+            - left
+            - right
+            - top
+            - bottom
         ```   
         ```
         * android:weight
         | 각 뷰의 값을 기준으로 %개념으로 확장되 여백을 차지하게 되는 속성 
 
-            -각뷰가 차지하는 면적에 맞게 상대적인 숫자를 값으로 줌
+            - 각뷰가 차지하는 면적에 맞게 상대적인 숫자를 값으로 줌
 
         ```
     * LinearLayout 사용 TIP
@@ -95,7 +95,7 @@ _Main text_
         * android:layout_toLeftOf
         * android:layout_toRightOf
 
-            -상대성의 의미를 부여할 다른 View의 id 이름을 값으로 줌 (그 View를 기준으로 현재의 View위치가 결정)
+            - 상대성의 의미를 부여할 다른 View의 id 이름을 값으로 줌 (그 View를 기준으로 현재의 View위치가 결정)
         ```
         ```
         * android:layout_alignTop
@@ -104,7 +104,7 @@ _Main text_
         * android:layout_alignRight
         * android:layout_alignBaseline
         
-            -현재의 View와 변의 시작점을 맞추고 싶은 다른 View의 id 이름을 값으로 줌
+            - 현재의 View와 변의 시작점을 맞추고 싶은 다른 View의 id 이름을 값으로 줌
         ```
         ```
         * android:layout_alignParentTop
@@ -130,7 +130,7 @@ _Main text_
 
         | | 안드로이드의 스마트폰은 너무 다양하므로 margin과같은 속성을 쓰면 어떤 기기에서는 원하지 않는 다인이 나올 수 있으므로 부모 뷰를 이용한다.
 
-            -true
+            - true
         ```
 3. FrameLayout
     * FrameLayout의 특징
@@ -159,8 +159,8 @@ _Main text_
         * android:orientation
         | 뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향
 
-            -vertical
-            -horizontal
+            - vertical
+            - horizontal
         ```
         ```
         * android:columnCount
@@ -187,7 +187,7 @@ _Main text_
         * android:layout_gravity
         | span으로 확장된 영역 전체를 차지하게 나오게 할 때
 
-            -fill
+            - fill
         ```
     * GridLayout 사용 TIP
 > LinearLayout 과 GridLayout만 방향을 지정하는 orientation속성을 제공한다.
@@ -287,14 +287,107 @@ _Main text_
 > "@+id/name"은 id값을 앱의 R.java파일에 등록하여 이용하겠다는 의미이고, "@android:id/tabs"는 안드로이드 라이브러이의 R.java파일에 등록된 것을 이용하겠다는 의미이다.
 ***
 ## Resource
-
 | 안드로이드의 모든 리소스들은 모두 res폴더 하위에 있어야 하며,개발자가 임의로 폴더명을 지정 할 수 없다.   
 | 하위폴더에 서브폴더를 만들수도 없다.   
 | 리소스를 추가하는 순간 int형의 임의 변수명으로 R.java파일에 저장된다.
 
-    * 
+* 폴더명 및 리소스
+        
+    * drawable :이미지,이미지와 관련된xml, 그림을 표현한xml
+    * layout :화면 UI를 정의한 레이아웃xml
+    * values :문자열 ,색상, 크기 등 여러가지 값
+    * menu :액티비티의 메뉴를 구성하기 위한xml
+    * anim :애니매이션을 위한xml
+    * raw :바이트 단위로 직접 이용되는 이진 파일
+    * mipmap :앱 아이콘 이미지
 
 1. 애니매이션(Animation) 리소스
+    * 애니메이션의 태그,속성과 값
+        ```
+        <공통속성>
+
+        * android:duration
+        | 지정한 애니매이션을 얼마동안 지속하는지에 대한 설정
+
+            - 2000으로 설정하면 2초동안 지속됨
+
+        * android:startOffset
+        | 애니매이션을 시작한 후 얼마 후부터 애니메이션 효과를 적용할 것인지 설정
+
+            - 500으로 지정하면 0.5초 이후 에니매이션 효과 적용
+        
+        * repeatCount 
+        | 애니매이션 반복횟수 지정
+
+            - infinite는 무한반복 , 정수 값
+        
+        * repeatMode 
+        | 애니매이션 반복
+
+            - restart 는 같은 방향 , reverse는 반대 방향
+        ```
+        ```
+        <scale>
+
+        * android:fromXScale
+        | X축 방향 시작 배율
+
+        * android:fromYScale
+        | Y축 방향 시작배율
+
+        * android:toXScale
+        | X축 방향 끝 배율
+
+        * android:toYScale
+        | Y축 방향 끝 배율
+
+            - 0이면 안보이고 2이면 두 배 확대
+
+        * android:pivotX
+        * android:pivotY
+        ||확대 축소 기준점
+            
+            - 50% 지정하면 X축(또는 Y축) 중앙점
+        ```
+        ```
+        <rotate>
+
+        * fromDegrees
+        | 회전시작 각도
+
+        * toDegrees
+        | 회전 끝 각도
+
+        * android:pivotX
+        * android:pivotY
+        ||확대 축소 기준점
+            
+            - 50% 지정하면 X축(또는 Y축) 중앙점
+        ```
+        ```
+        <alpha>
+
+        * android:fromAlpha 
+        | 시작 투명도
+
+        * android:toAlpha
+        | 끝 투명도
+        ```
+        ```
+        <translate>
+
+        * fromXDelta 
+        | X축 방향 이동 시작 지점
+
+        * fromYDelta
+        | Y축 방향 이동 시작 지점
+
+        * toXDelta
+        | X축 방향 이동 끝 지점
+
+        * toYDelta
+        | Y축 방향 이동 끝 지점
+        ```
 
 2. 크기와 색상 리소스
 3. 스타일 리소스
@@ -309,12 +402,12 @@ _Main text_
         * makeText(Context context,int resId,int duration)
         * makeText(Context context,CharSequence text,int duration)
 
-            * 예시       
-    ```java
-    Toast t Toast.makeText(this,"hi",Toast.LENGTH_SHORT);
+    * 예시       
+        ```java
+        Toast t Toast.makeText(this,"hi",Toast.LENGTH_SHORT);
 
-    t.show(); 
-    ```
+        t.show(); 
+        ```
     * 토스트 추가 설정 함수
 
         * setDuration(int duration)   
@@ -348,64 +441,62 @@ _Main text_
 
     * 퍼미션 설정하기   
     | AndroidManifest.xml에서 설정
-    ```java
-    <uses-permission android:name="android.permissoin.VIBRATE"/>
-    ```           
+        ```java
+        <uses-permission android:name="android.permissoin.VIBRATE"/>
+        ```           
     * 진동 울리기   
     | virbrate()의 매개변수는 진동이 울리는 시간이다.    
     | 1000으로 설정하면 1초 동안 울리는 것.
-    ```java
-    Vibrator vib =(Vibrator)getSystemService(VIBRATOR_SERVICE);
-                
-    vir.vibrate(1000);
-    ```   
-
-
+        ```java
+        Vibrator vib =(Vibrator)getSystemService(VIBRATOR_SERVICE);
+                    
+        vir.vibrate(1000);
+        ```   
     * 다양하게 진동 울리기   
     | long[]의 배열에서 홀수번째 값은 대기시간, 짝수번째 값은 진동이 울리는 시간이다.  
     | 두 번째 매개변수에는 진동울리기 반복 횟수 값을 주면 되는데 0을 주면 코드에서 cancel할 때 까지 무한반복 진동하고, -1로 주면 한번만 진동한다.   
      
-     ```java
-    Vibrator vib=(Vibrator)getSystemService(VIBRATOR_SERVICE);
+        ```java
+        Vibrator vib=(Vibrator)getSystemService(VIBRATOR_SERVICE);
 
-    vib.vibrate(new long[]{500,1000,500,1000},-1);
-    ``` 
+        vib.vibrate(new long[]{500,1000,500,1000},-1);
+        ``` 
 9. 소리(Ringtone)
 
     * 스마트폰에 내장되 효과음 사용하기  
     | 효과음은 RingtoneManager의 getDefaultUri()함수를 이용하여 획득한다.    
-    | NOTIFICATION뿐 아니라, ALATM, RINGTONE등 이 있다.   
-     ```
-    Uri notification =RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+    | NOTIFICATION뿐 아니라, ALATM, RINGTONE등 이 있다.  
+        ```java
+        Uri notification =RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-    Ringtone ringtone =RingtoneManager.getRingtone(getApplicationContext(),notification);
+        Ringtone ringtone =RingtoneManager.getRingtone(getApplicationContext(),notification);
 
-    ringtone.paly();
-    ```
+        ringtone.paly();
+        ```
 
     * 개발자가 사용하고 싶은 효과음 사용하기  
     | res하위의 raw폴더를 이용해야 한다.
 
-    ```java
-    MadiaPlayer player= MediaPlayer.create(this,R.raw.fallbacking);
+        ```java
+        MadiaPlayer player= MediaPlayer.create(this,R.raw.fallbacking);
 
-    player.start();
-    ```
+        player.start();
+        ```
 ***
 ## 사용자 이벤트 처리   
 1. 델리게이션 이벤트 모델 (Delegation Event Model)    
 | 뷰에서 발생하는 이벤트를 처리하기 위한 모델   
 | 이벤트를 명료 하게 처리하기 위한 모델
 
-* 델리게이션 (Delegation)의 사전적 의미   
-    * 대표 임명, (권력 등의) 위임   
-    * 대표단,각 주(州)를 대표하는 국회의원
-    * 대표 파견   
+    * 델리게이션 (Delegation)의 사전적 의미   
+        * 대표 임명, (권력 등의) 위임   
+        * 대표단,각 주(州)를 대표하는 국회의원
+        * 대표 파견   
         
-* 델리게이션 이벤드 프로그램 구조
-    1. 이벤트 소스(Event Source): 이벤트가 발생한 뷰 객체
-    2. 이벤트 핸들러(Event Handler): 이벤트 처리 내용을 가지는 객체
-    3. 리스너(Listener): 이벤트 소스와 이벤트 핸들러를 연결하는 작업
+    * 델리게이션 이벤드 프로그램 구조
+        1. 이벤트 소스(Event Source): 이벤트가 발생한 뷰 객체
+        2. 이벤트 핸들러(Event Handler): 이벤트 처리 내용을 가지는 객체
+        3. 리스너(Listener): 이벤트 소스와 이벤트 핸들러를 연결하는 작업
     
     | 이벤트 소스와 이벤트 핸들러를 setOnXXXListener()함수로 연결하고 이벤트 핸들러는 OnXXXListener를 구현하여 작성.
 
@@ -414,77 +505,77 @@ _Main text_
         1. vibrateCheckView객체에서 CheckedCahngeEvent가 발생하면 
         2. MyEventHandler클래스 객체를 실행하여 이벤트를 처리하라
         3. (MyEventHandler를 개발자 만들어야 하며, 반드시 지정된 인터페이스를 구현해야함)    
-    
-    ```java
-    1,2번 
-
-    vibrateCheckView.setOnCeckedChangeListener(new MyEventHandler());
-    ```    
-    ```java
-    3번 
-
-    class MyEventHandler implements CompoundButton.OnCheckedChangeListener{
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView,boolean isChecked){
-
-        }
-    }
-    ```
-
-    * 주요 이벤트
-        * OnClickListener   
-        | 뷰 클릭 시 발생하는 이밴트   
-        모든뷰에 적용 가능하다.
-
-        * OnLongClickListener   
-        | 뷰를 오래 클릭했을 때 발생하는 이벤트   
-        모든뷰에 적용 가능하다.   
-        | 롱 클릭이벤트를 뷰에 적용하려면 setOnLongClickListener()메서드 이용
-
-        * OnCheckedChangeListener   
-        | CheckBox의 상태 변경 이밴트
         
-        * OnItemClickListener    
-        | ListView의 항목 선택 이벤트
-        
-        * OnDateSetListener    
-        | DatePicker의 날짜 선택 이벤트
-        
-        * OnTimeSetListener    
-        | TimePicker의 시간 선택 이벤트 
-    ```java
-    btn.setOnClickListener(new View.OnClickListener(){
-        @Override
-        public void onClick(View v){
+        ```java
+        1,2번 
 
-        }
-    });
-    ```
-    ```java
-    btn.setOnLongClickListener(new View.OnLongClickListener(){
-        @Override
-        public boolean onLongClick(View v){
-            return false;
-        }
-    });
-    ```
-    ```java
-    checkBox.setOnCheckedChangListener(new CompoundButton.OnCheckedChangeListener(){
-        @Overrid
-        public void onCheckedChanged(CompoundButton buttonView,booleab isChecked){
+        vibrateCheckView.setOnCeckedChangeListener(new MyEventHandler());
+        ```    
+        ```java
+        3번 
 
+        class MyEventHandler implements CompoundButton.OnCheckedChangeListener{
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked){
+
+            }
         }
-    });
-    ```
+        ```
+
+        * 주요 이벤트
+            * OnClickListener   
+            | 뷰 클릭 시 발생하는 이밴트   
+            모든뷰에 적용 가능하다.
+
+            * OnLongClickListener   
+            | 뷰를 오래 클릭했을 때 발생하는 이벤트   
+            모든뷰에 적용 가능하다.   
+            | 롱 클릭이벤트를 뷰에 적용하려면 setOnLongClickListener()메서드 이용
+
+            * OnCheckedChangeListener   
+            | CheckBox의 상태 변경 이밴트
+            
+            * OnItemClickListener    
+            | ListView의 항목 선택 이벤트
+            
+            * OnDateSetListener    
+            | DatePicker의 날짜 선택 이벤트
+            
+            * OnTimeSetListener    
+            | TimePicker의 시간 선택 이벤트 
+            ```java
+            btn.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+
+                }
+            });
+            ```
+            ```java
+            btn.setOnLongClickListener(new View.OnLongClickListener(){
+                @Override
+                public boolean onLongClick(View v){
+                    return false;
+                }
+            });
+            ```
+            ```java
+            checkBox.setOnCheckedChangListener(new CompoundButton.OnCheckedChangeListener(){
+                @Overrid
+                public void onCheckedChanged(CompoundButton buttonView,booleab isChecked){
+
+                }
+            });
+            ```
 2. 하이어라키 이벤트 모델 (Hierarchy Event Model)   
 | 액티비티에서 발생하는 사용자의 터치나 키 이벤트를 직접 처리하기 위한 모델   
 | onTouchEvent
 
-* 하이어라키 (Hierarchy)의 사전적 의미      
-    * 계층제, 계급제   
-    * 계층,분류의 체계
-    * 권력자 집단,권력자 집단에 의한 통치, 엘리트   
-        
+    * 하이어라키 (Hierarchy)의 사전적 의미      
+        * 계층제, 계급제   
+        * 계층,분류의 체계
+        * 권력자 집단,권력자 집단에 의한 통치, 엘리트   
+            
     1. 터치 이벤트  
     | 사용자가 손가락으로 조작하는 일을 터치 이벤트로 처리하여 구성   
     | 사용자가 손가락을 상하좌우 중 어떤 방향으로 밀었는지 알아낼 때도 터치 이벤트를 이용     
@@ -498,21 +589,21 @@ _Main text_
         ```
         * onTouchEvent메서드가 호출되는 터치 이벤트는 3가지 타입이 있으며, 이 메서드의 메개변수 식별해서 사용할 수 있다.
 
-        * ACTION_DOWN :화면에 터치된 순간의 이벤트
-        * ACTION_UP: 터치를 떼는 순간의 이벤트
-        * ACTION_MOVE :터치한 후 이동한 순간의 이벤트
+            * ACTION_DOWN :화면에 터치된 순간의 이벤트
+            * ACTION_UP: 터치를 떼는 순간의 이벤트
+            * ACTION_MOVE :터치한 후 이동한 순간의 이벤트
 
         * 터치 이벤트가 발생한 좌표값을 얻는 매서드
-        ```
-        * getX()
-        * getY()
-        | 이벤트가 발생한 뷰 내에서 좌표값을 반환한다.
-        ```
-        ```
-        * getRawX()
-        * getRawY()
-        | 화면에서의 좌표값을 반환한다.
-        ```
+            ```
+            * getX()
+            * getY()
+            | 이벤트가 발생한 뷰 내에서 좌표값을 반환한다.
+            ```
+            ```
+            * getRawX()
+            * getRawY()
+            | 화면에서의 좌표값을 반환한다.
+            ```
         ```java
         @Override
         public boolean onTouchEvent(MotionEvent event){
