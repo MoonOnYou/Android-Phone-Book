@@ -287,7 +287,7 @@ _Main text_
 > "@+id/name"은 id값을 앱의 R.java파일에 등록하여 이용하겠다는 의미이고, "@android:id/tabs"는 안드로이드 라이브러이의 R.java파일에 등록된 것을 이용하겠다는 의미이다.
 ***
 ## Resource
-| 안드로이드의 모든 리소스들은 모두 res폴더 하위에 있어야 하며,개발자가 임의로 폴더명을 지정 할 수 없다.   
+| 안드로이드의 모든 리소스들은 모두 res폴더 하위에 있어야 하며,개발자가 임의로 폴더명을 지정 할 수 도, 만들수도 없다   
 | 하위폴더에 서브폴더를 만들수도 없다.   
 | 리소스를 추가하는 순간 int형의 임의 변수명으로 R.java파일에 저장된다.
 
@@ -388,10 +388,68 @@ _Main text_
         * toYDelta
         | Y축 방향 이동 끝 지점
         ```
+    * 작성한 XML과 JAVA코드 연결하기    
+    | Animation 객체로 in이라는 XML 파일을 지칭하여 뷰의 startAnimation() 함수를 이용해 적용
+        ```java
+        Animation anim= AnimationUtils.loadAnimation(this,R.anim.in);
+        imageView.startAnimation(anim);
+        ```
+2. 크기와 색상 리소스   
+| values폴더에 있는 리소스들은 다른 리소스들과 다르게 파일명으로 식별 되는 것이 아니라 , 각 XML파일의 태그 이름 값으로 식별되어 사용된다.   
+    
+    * 권장 파일명
+        ```
+        * strings.xml 
+        | 문자열 리소스를 여러개를 담는 파일,파일내에 <string>태그로 각 리소스 등록
 
-2. 크기와 색상 리소스
-3. 스타일 리소스
-4. 테마 리소스
+        * colors.xml
+        | 색상 리소스를 여러개를 담는 파일,파일내에 <color>태그로 각 리소스 등록
+
+        * styles.xml
+        | 스타일을 여러개 담는 파일,파일내에 <style>로 각 리소스 등록
+
+        * arrays.xmml
+        | 배열 리소스를 여러개 담는 파일,<string-array>,파일내에 <integer-array>태그로 각 리소스 등록
+
+        * dimens.xml
+        | 크기 리소스를 담는 파일, 파일내에 <dimen>태그로 각 리소스 등록
+
+        || 모두 <resources> </resources> 태그 안에 넣으면 된다.
+        ```
+3. 스타일 리소스,테마 리소스   
+| 앱 개발시 같은 속성들을 계속 중복하게 되는데 이때 style속성을 이용하면 된다.   
+| 중복되는 속성을 묶으면 스타일 리소스, 중복되는 액티비티를 묶으면 테마 리소스라 부른다.
+    * 스타일 리소스 사용방법
+        1. values폴더 하위에 있는 styles.xml파일에 style을 정의 한다.
+            * 예시
+                ```xml
+                <style name="myStyle">
+                    <item name="android:textColor">#F00000FF</item>
+                    <item name="android:textSize">20dp</item>
+                </style>
+                ```
+        2. view에서 style속성 사용하기 
+            * 예시
+                ```xml
+                <TextView>
+                    . . .
+                    style="@style/myStyle
+                />
+                ```
+        3. 스타일을 정의 할 떄 다른 스타일을 상속 받아 재정의 할 수도 있다.
+            * 예시 
+                ```xml
+                <style name="myStyle">
+                    <item name="android:textColor">#F00000FF</item>
+                    <item name="android:textSize">20dp</item>
+                </style>
+
+                <style name="subStyle" parent="myStyle">
+                    <item name="android:textStyle">italic</item>
+                </style>
+                ```
+    * 테마 리소스 사용방법    
+    | 액티비티 기본 화면은 라이
 ***
 ## Alert
 1. 토스트(Toast)
@@ -581,12 +639,12 @@ _Main text_
     | 사용자가 손가락을 상하좌우 중 어떤 방향으로 밀었는지 알아낼 때도 터치 이벤트를 이용     
        
         * 터치이벤트가 발생 할 때 콜백함수를 액티비티내에 정의하는 것만으로도 이벤트 처리가 가능
-        ```java
-        @Override
-        public boolean onTouchEvent(MotionEvent event){
-        return super.onTouchEvent(event);
-        }
-        ```
+            ```java
+            @Override
+            public boolean onTouchEvent(MotionEvent event){
+            return super.onTouchEvent(event);
+            }
+            ```
         * onTouchEvent메서드가 호출되는 터치 이벤트는 3가지 타입이 있으며, 이 메서드의 메개변수 식별해서 사용할 수 있다.
 
             * ACTION_DOWN :화면에 터치된 순간의 이벤트
@@ -604,48 +662,48 @@ _Main text_
             * getRawY()
             | 화면에서의 좌표값을 반환한다.
             ```
-        ```java
-        @Override
-        public boolean onTouchEvent(MotionEvent event){
-            if(event.getAction()==MotionEvent.ACTION_DOWN){
-                initX=event.getRawX();
+            ```java
+            @Override
+            public boolean onTouchEvent(MotionEvent event){
+                if(event.getAction()==MotionEvent.ACTION_DOWN){
+                    initX=event.getRawX();
+                }
+                return true;
             }
-            return true;
-        }
-        ```
+            ```
     2. 키 이벤트   
     | 주로 '뒤로가기' 버튼에서 '정말 종료 하시겠습니까?'로 사용   
     | 홈,전원,오버뷰 버튼 일반 애플리케이션에서 이벤트 처리로 제어하지 못한다.     
         * 키 이벤트가 발생할 때 호출되는 이벤트 함수를 액티비티내에 정의만 하면 된다.
-        ```java
-        @Override
-        public boolean onKeydown(int keyCode,keyEvent event){
-            return super.onKeyDown(keyCode, event);
-        }
-        ```
+            ```java
+            @Override
+            public boolean onKeydown(int keyCode,keyEvent event){
+                return super.onKeyDown(keyCode, event);
+            }
+            ```
         * 키 이벤드가 발생할 때 호출되는 이벤트 함수    
         | keyCode 값이 전달되어 어느 버튼을 누른건지 식별가능
 
             * onKeyDown :키가 눌린순간의 이벤트   
             * onKeyUp : 키가 떼는 순간의 이벤트   
             * onKeyLongPress :이를 오래 누르는 순간의 이벤트   
-        ```java
-        @Override
-        public boolean onKeyDown(int keyCode,keyEvent event){
-            if(keyCode==keyEventKEYCODE_BACK){
+            ```java
+            @Override
+            public boolean onKeyDown(int keyCode,keyEvent event){
+                if(keyCode==keyEventKEYCODE_BACK){
 
+                }
+                return super.onKeyDown(keyCode,event);
             }
-            return super.onKeyDown(keyCode,event);
-        }
-        ```
+            ```
         * onKeyDown()메서드 이외의 뒤로가기 메서드 == onBackPressed()   
         | onBackPressed()뒤로가기 목적으로 만들어 졌으므로 다른 키 이벤트는 처리 할수 없다.
-        ```java
-        @Override
-        public void onBackPressed(){
-            super.onBackPressed();
-        }
-        ```
+            ```java
+            @Override
+            public void onBackPressed(){
+                super.onBackPressed();
+            }
+            ```
     * 알아두면 좋을 것
 > 
 ***
