@@ -49,17 +49,17 @@ _Main text_
     * LinearLayout의 속성 및 값
         ```
         * android:orientation
-        뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향 
+        | 뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향 
 
             -vertical
             -horiznotal
         ``` 
         ```
         * android:gravity
-        뷰의 내용을 뷰 영역 내에서 어디에 나타낼지 값으로 지정
+        | 뷰의 내용을 뷰 영역 내에서 어디에 나타낼지 값으로 지정
 
         * android:Layout_gravity
-        LinearLayout영역 내에서 어디에 나타낼지 값으로 지정
+        | LinearLayout영역 내에서 어디에 나타낼지 값으로 지정
 
             -left
             -right
@@ -68,7 +68,7 @@ _Main text_
         ```   
         ```
         * android:weight
-        각 뷰의 값을 기준으로 %개념으로 확장되 여백을 차지하게 되는 속성 
+        | 각 뷰의 값을 기준으로 %개념으로 확장되 여백을 차지하게 되는 속성 
 
             -각뷰가 차지하는 면적에 맞게 상대적인 숫자를 값으로 줌
 
@@ -103,27 +103,27 @@ _Main text_
         ```
         ```
         * android:layout_alignParentTop
-        부모의 윗부분에 뷰의 상단을 위치
+        | 부모의 윗부분에 뷰의 상단을 위치
 
         * android:layout_alignParentBottom
-        부모의 아랫부분에 뷰의 하단을 위치 
+        | 부모의 아랫부분에 뷰의 하단을 위치 
 
         * android:layout_alignParentLeft
-        부모의 왼쪽에 뷰의 왼쪽을 위치
+        | 부모의 왼쪽에 뷰의 왼쪽을 위치
 
         * android:layout_alignParentRight
-        부모의 오른쪽의 뷰의 오른쪽을 위치
+        | 부모의 오른쪽의 뷰의 오른쪽을 위치
 
         * android:layout_alignParentHorizontal
-        부모의 가로방향 중앙에 뷰를 배치
+        | 부모의 가로방향 중앙에 뷰를 배치
 
         * android:layout_alignParentVertical
-        부모의 세로 방향 중앙에 뷰를 위치
+        | 부모의 세로 방향 중앙에 뷰를 위치
 
         * android:layout_alignParent
-        부모의 가로세로 중앙에 뷰를 위치
+        | 부모의 가로세로 중앙에 뷰를 위치
 
-        안드로이드의 스마트폰은 너무 다양하므로 margin과같은 속성을 쓰면 어떤 기기에서는 원하지 않는 다인이 나올 수 있으므로 부모 뷰를 이용한다.
+        | | 안드로이드의 스마트폰은 너무 다양하므로 margin과같은 속성을 쓰면 어떤 기기에서는 원하지 않는 다인이 나올 수 있으므로 부모 뷰를 이용한다.
 
             -true
         ```
@@ -152,35 +152,35 @@ _Main text_
     * GridLayout의 속성 및 값
         ```
         * android:orientation
-        뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향
+        | 뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향
 
             -vertical
             -horizontal
         ```
         ```
         * android:columnCount
-        orientation이 가로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
+        | orientation이 가로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
         
         * android:rowCount
-        orientation이 세로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
+        | orientation이 세로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
         ```
         ```
         * android:layout_column 
-        뷰가 위치할 열 인덱스 지정
+        | 뷰가 위치할 열 인덱스 지정
 
         * android:layout_row
-        뷰가 위치할 행 인덱스 지정
+        | 뷰가 위치할 행 인덱스 지정
         ```
         ```
         * android:layout_columnSpan
-        가로방향으로 여러열을 하나의 뷰가 차지하고자 할 때
+        | 로방향으로 여러열을 하나의 뷰가 차지하고자 할 때
 
         * android:layout_rowSpan
-        세로방향으로 여러행을 하나의 뷰가 차지하고자 할 때
+        | 세로방향으로 여러행을 하나의 뷰가 차지하고자 할 때
         ```
         ```
         * android:layout_gravity
-        span으로 확장된 영역 전체를 차지하게 나오게 할 때
+        | span으로 확장된 영역 전체를 차지하게 나오게 할 때
 
             -fill
         ```
@@ -201,7 +201,7 @@ _Main text_
     * ConstrainLayout의 속성 및 값
         ```
         * app:layout_constraintX_Y   
-        해당 뷰의 X변에 맞다도록 상대 뷰의 Y쪽에 위치하도록 한다.
+        | 해당 뷰의 X변에 맞다도록 상대 뷰의 Y쪽에 위치하도록 한다.
 
         * app:layout_constraintLeft_toLeftOf
         * app:layout_constraintLeft_toRightOf
@@ -222,10 +222,10 @@ _Main text_
         ```
         ```
         * app:layout_constraintHorizontal_bias
-        가로 치우침 조절
+        | 가로 치우침 조절
 
         * app:layout_constraintvertical_bias
-        세로 치우침 조절
+        | 세로 치우침 조절
 
             - 소수점을 값으로 준다
         ```
@@ -236,7 +236,7 @@ _Main text_
         * android:layout_marginBottom
         * android:layout_marginStart
         * android:layout_marginEnd
-        뷰와 뷰 사이의 간격을 표현하기 위한 속성 margin
+        | 뷰와 뷰 사이의 간격을 표현하기 위한 속성 margin
 
             -  X dp , X px 등 의 margin값 
         ```
@@ -247,13 +247,13 @@ _Main text_
         * app:layout_goneMarginBottom
         * app:layout_goneMarginStart
         * app:layout_goneMarginEnd
-        상대 뷰가 gone 상태일 때 margin값을 다르게 설정하여 상대 뷰가 보이지 않는 상황에 대응 할 수 있다.
+        | 상대 뷰가 gone 상태일 때 margin값을 다르게 설정하여 상대 뷰가 보이지 않는 상황에 대응 할 수 있다.
 
             -  X dp , X px 등 의 margin값
         ```
         ```
         * app:layout_constraintDimensionRatio
-        다른 constraint속성이 함께 지정된 경우에만 사용가능 , layout_width나 layout_height 중 하나 이상이 "0dp"일 경우만 사용가능
+        | 다른 constraint속성이 함께 지정된 경우에만 사용가능 , layout_width나 layout_height 중 하나 이상이 "0dp"일 경우만 사용가능
 
             - 기준 선택 (H 또는 W ) , 비율 (ex. 3:4)
         ```
@@ -285,7 +285,8 @@ _Main text_
 1. 토스트(Toast)
 
     * 토스트 기본함수   
-    세번째 매개변수는 LENGTH_SHORT(3초) 또는 LENGTH_LONG(5초)만 지정할 수 있으며 임의의 숫자값을 지정할 수 없다.
+
+    | 세번째 매개변수는 LENGTH_SHORT(3초) 또는 LENGTH_LONG(5초)만 지정할 수 있으며 임의의 숫자값을 지정할 수 없다.
 
         * makeText(Context context,int resId,int duration)
         * makeText(Context context,CharSequence text,int duration)
@@ -299,19 +300,19 @@ _Main text_
     * 토스트 추가 설정 함수
 
         * setDuration(int duration)   
-        토스트가 보이는 시간 설정
+        | 토스트가 보이는 시간 설정
 
         * setText(int resId)   
-        원하는 글을 토스트로 띄우기
+        | 원하는 글을 토스트로 띄우기
 
         * setView(View view)   
-        원하는 뷰를 토스트로 띄우기
+        | 원하는 뷰를 토스트로 띄우기
 
         * setGravity(int gravity,int xOffset,int yOffset)   
-        토스트 위치조절 가능
+        | 토스트 위치조절 가능
 
         * setMargin(float horizontalMargin,float verticalMargin)   
-        토스트 위치조절 가능
+        | 토스트 위치조절 가능
 
 2. 알림창(AlertDialog)
 3. 목록(AlertDialog)
@@ -322,18 +323,22 @@ _Main text_
 8. 진동(vibrate)
     
     * 주의 사항   
-    Permission을 설정하지 않으면 진동이 울리는 순간 오류가 발생하여 앱이 자동으로 종료된다.
 
-        * Permission의 뜻   
-        허가
+    | Permission을 설정하지 않으면 진동이 울리는 순간 오류가 발생하여 앱이 자동으로 종료된다.
 
-        * 퍼미션 설정하기   
-        AndroidManifest.xml에서 설정
+    * Permission의 뜻   
+    | 허가
+
+    * 퍼미션 설정하기   
+    | AndroidManifest.xml에서 설정
     ```java
     <uses-permission android:name="android.permissoin.VIBRATE"/>
     ```           
     * 진동 울리기   
-    virbrate()의 매개변수는 진동이 울리는 시간이다. 1000으로 설정하면 1초 동안 울리는 것.
+
+    | virbrate()의 매개변수는 진동이 울리는 시간이다. 
+     
+    | 1000으로 설정하면 1초 동안 울리는 것.
     ```java
     Vibrator vib =(Vibrator)getSystemService(VIBRATOR_SERVICE);
                 
@@ -342,8 +347,10 @@ _Main text_
 
 
     * 다양하게 진동 울리기   
-    long[]의 배열에서 홀수번째 값은 대기시간, 짝수번째 값은 진동이 울리는 시간이다.   
-    두 번째 매개변수에는 진동울리기 반복 횟수 값을 주면 되는데 0을 주면 코드에서 cancel할 때 까지 무한반복 진동하고, -1로 주면 한번만 진동한다.   
+
+    | long[]의 배열에서 홀수번째 값은 대기시간, 짝수번째 값은 진동이 울리는 시간이다.   
+
+    | 두 번째 매개변수에는 진동울리기 반복 횟수 값을 주면 되는데 0을 주면 코드에서 cancel할 때 까지 무한반복 진동하고, -1로 주면 한번만 진동한다.   
      
      ```java
     Vibrator vib=(Vibrator)getSystemService(VIBRATOR_SERVICE);
@@ -352,9 +359,10 @@ _Main text_
     ``` 
 9. 소리(Ringtone)
 
-    * 스마트폰에 내장되 효과음 사용하기   
-    효과음은 RingtoneManager의 getDefaultUri()함수를 이용하여 획득한다.    
-    NOTIFICATION뿐 아니라, ALATM, RINGTONE등 이 있다.   
+    * 스마트폰에 내장되 효과음 사용하기  
+
+    | 효과음은 RingtoneManager의 getDefaultUri()함수를 이용하여 획득한다.    
+    | NOTIFICATION뿐 아니라, ALATM, RINGTONE등 이 있다.   
      ```
     Uri notification =RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -363,8 +371,9 @@ _Main text_
     ringtone.paly();
     ```
 
-    * 개발자가 사용하고 싶은 효과음 사용하기   
-    res하위의 raw폴더를 이용해야 한다.
+    * 개발자가 사용하고 싶은 효과음 사용하기  
+
+    | res하위의 raw폴더를 이용해야 한다.
 
     ```java
     MadiaPlayer player= MediaPlayer.create(this,R.raw.fallbacking);
@@ -373,9 +382,10 @@ _Main text_
     ```
 ***
 ## 사용자 이벤트 처리   
-1. 델리게이션 이벤트 모델 (Delegation Event Model)   
-뷰에서 발생하는 이벤트를 처리하기 위한 모델   
-이벤트를 명료 하게 처리하기 위한 모델
+1. 델리게이션 이벤트 모델 (Delegation Event Model) 
+
+| 뷰에서 발생하는 이벤트를 처리하기 위한 모델   
+| 이벤트를 명료 하게 처리하기 위한 모델
 
     * 델리게이션 (Delegation)의 사전적 의미   
         * 대표 임명, (권력 등의) 위임   
@@ -390,27 +400,47 @@ _Main text_
 
         * 이벤트 소스와 이벤트 핸들러를 setOnXXXListener()함수로 연결하고 이벤트 핸들러는 OnXXXListener를 구현하여 작성.
 
+    * java코드
+        1. vibrateCheckView객체에서 CheckedCahngeEvent가 발생하면 
+        2. MyEventHandler클래스 객체를 실행하여 이벤트를 처리하라
+        3. (MyEventHandler를 개발자 만들어야 하며, 반드시 지정된 인터페이스를 구현해야함)    
+    ```java
+    1,2번 
+
+    vibrateCheckView.setOnCeckedChangeListener(new MyEventHandler());
+    ```    
+    ```java
+    3번 
+
+    class MyEventHandler implements CompoundButton.OnCheckedChangeListener{
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView,boolean isChecked){
+
+        }
+    }
+    ```
+
     * 주요 이벤트
         * OnClickListener   
-        뷰 클릭 시 발생하는 이밴트   
+        | 뷰 클릭 시 발생하는 이밴트   
         모든뷰에 적용 가능하다.
 
         * OnLongClickListener   
-        뷰를 오래 클릭했을 때 발생하는 이벤트   
-        모든뷰에 적용 가능하다.
-        롱 클릭이벤트를 뷰에 적용하려면 setOnLongClickListener()메서드 이용
+        | 뷰를 오래 클릭했을 때 발생하는 이벤트   
+        모든뷰에 적용 가능하다.   
+        | 롱 클릭이벤트를 뷰에 적용하려면 setOnLongClickListener()메서드 이용
 
         * OnCheckedChangeListener   
-        CheckBox의 상태 변경 이밴트
+        | CheckBox의 상태 변경 이밴트
         
         * OnItemClickListener    
-        ListView의 항목 선택 이벤트
+        | ListView의 항목 선택 이벤트
         
         * OnDateSetListener    
-        DatePicker의 날짜 선택 이벤트
+        | DatePicker의 날짜 선택 이벤트
         
         * OnTimeSetListener    
-        TimePicker의 시간 선택 이벤트 
+        | TimePicker의 시간 선택 이벤트 
     ```java
     btn.setOnClickListener(new View.OnClickListener(){
         @Override
@@ -435,37 +465,70 @@ _Main text_
         }
     });
     ```
-    * java코드
-        1. vibrateCheckView객체에서 CheckedCahngeEvent가 발생하면 
-        2. MyEventHandler클래스 객체를 실행하여 이벤트를 처리하라
-        3. (MyEventHandler를 개발자 만들어야 하며, 반드시 지정된 인터페이스를 구현해야함)    
+2. 하이어라키 이벤트 모델 (Hierarchy Event Model)   
+
+| 액티비티에서 발생하는 사용자의 터치나 키 이벤트를 직접 처리하기 위한 모델
+
+        * 하이어라키 (Hierarchy)의 사전적 의미      
+            * 계층제, 계급제   
+            * 계층,분류의 체계
+            * 권력자 집단,권력자 집단에 의한 통치, 엘리트   
+           
+         
+    1. 터치 이벤트  
+
+    | 사용자가 손가락으로 조작하는 일을 터치 이벤트로 처리하여 구성   
+    | 사용자가 손가락을 상하좌우 중 어떤 방향으로 밀었는지 알아낼 때도 터치 이벤트를 이용     
+    
+* 터치이벤트가 발생 할 때 콜백함수를 액티비티내에 정의하는 것만으로도 이벤트 처리가 가능
     ```java
-    1,2번 
-
-    vibrateCheckView.setOnCeckedChangeListener(new MyEventHandler());
-     ```    
-    ```java
-    3번 
-
-    class MyEventHandler implements CompoundButton.OnCheckedChangeListener{
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView,boolean isChecked){
-
-        }
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        return super.onTouchEvent(event);
     }
     ```
+* onTouchEvent메서드가 호출되는 터치 이벤트는 3가지 타입이 있으며, 이 메서드의 메개변수 식별해서 사용할 수 있다.
 
+    * ACTION_DOWN :화면에 터치된 순간의 이벤트
+    * ACTION_UP: 터치를 떼는 순간의 이벤트
+    * ACTION_MOVE :터치한 후 이동한 순간의 이벤트
 
-2. 하이어라키 이벤트 모델 (Hierarchy Event Model)   
-액티비티에서 발생하는 사용자의 터치나 키 이벤트를 직접 처리하기 위한 모델
+* 터치 이벤트가 발생한 좌표값을 얻는 매서드
+    ```
+    * getX()
+    * getY()
+    | 이벤트가 발생한 뷰 내에서 좌표값을 반환한다.
+    ```
+    ```
+    * getRawX()
+    * getRawY()
+    | 화면에서의 좌표값을 반환한다.
+    ```
+    ```java
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        if(event.getAction()==MotionEvent.ACTION_DOWN){
+            initX=event.getRawX();
+        }
+        return true;
+    }
+    ```
+    2. 키 이벤트   
+    | 주로 '뒤로가기' 버튼에서 '정말 종료 하시겠습니까?'로 사용   
+    | 홈,전원,오버뷰 버튼 일반 애플리케이션에서 이벤트 처리로 제어하지 못한다.     
+* 키 이벤트가 발생할 때 호출되는 이벤트 함수를 액티비티내에 정의만 하면 된다.
+```java
+@Override
+public boolean onKeydown(int keyCode,keyEvent event){
+    return super.onKeyDown(keyCode, event);
+}
+```
+* 키 이벤드가 발생할 때 호출되는 이벤트 함수    
+| keyCode 값이 전달되어 어느 버튼을 누른건지 식별가능
 
-     하이어라키 (Hierarchy)의 사전적 의미      
-        * 계층제, 계급제   
-        * 계층,분류의 체계
-        * 권력자 집단,권력자 집단에 의한 통치, 엘리트   
-           
-    1. 터치 이벤트
-    2. 키 이벤트    
+    * onKeyDown :키가 눌린순간의 이벤트   
+    * onKeyUp : 키가 떼는 순간의 이벤트   
+    * onKeyLongPress :이를 오래 누르는 순간의 이벤트   
 ***
 ## JAVA   
 
