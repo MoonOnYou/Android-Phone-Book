@@ -486,7 +486,7 @@ _Main text_
                 ```
         3. application 태그에 적용하면 모든 액티비티가 같은 테마를 가지게 되는데 그중 다른 테마를 적용하고 싶을 때
             
-            * AndroidManifest.xml의 <application> 의 하위태그 <activity>에 태마를 설정하면 된다.
+            * AndroidManifest.xml의 application의 하위태그 activity에 태마를 설정하면 된다.
                 ```xml
                 <activity android:name="MainActivity"
                           android:theme="@style/AppTheme">
@@ -494,10 +494,11 @@ _Main text_
                 ```
         4. 액티비티 가로세로 고정 방법
             * 이 역시 AndroidManifest.xml파일의 <activity>태그에 설정한다.
+                ```
                 * android:screenOrientation
                     - landscape, 가로방향 고정
                     - portrait, 세로 방향 고정 
-    
+                ```
 
 ***
 ## Alert
