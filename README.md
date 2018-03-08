@@ -19,8 +19,7 @@ _List_
 ## Resource
 1. 애니매이션(Animation) 리소스
 2. 크기와 색상 리소스
-3. 스타일 리소스
-4. 테마 리소스
+3. 스타일 ,테마 리소스
 ***
 ## Alert
 1. 토스트(Toast)
@@ -417,7 +416,7 @@ _Main text_
         || 모두 <resources> </resources> 태그 안에 넣으면 된다.
         ```
 3. 스타일 리소스,테마 리소스   
-| 스타일 ,테마 리소스는 values폴더 하위의 style.xml에 값을 주면 된다 
+| 스타일 ,테마 리소스는 values폴더 하위의 style.xml에 값을 주면 된다   
 | 앱 개발시 같은 속성들을 계속 중복하게 되는데 이때 style속성을 이용하면 된다.   
 | 중복되는 속성을 묶으면 스타일 리소스, 중복되는 액티비티를 묶으면 테마 리소스라 부른다.
     * 스타일 리소스 사용방법
@@ -452,7 +451,7 @@ _Main text_
             
     * 테마 리소스 사용방법    
     
-        1. Android의 기본 테마는 라이브러리의 테마를 상속 받은 "AppTheme"이다. style에 가면 다음과 같은 코드가 기본으로 있다
+        1. Android의 기본 테마는 라이브러리의 테마를 상속 받은 "AppTheme"이다. style.xml에 가면 다음과 같은 코드가 기본으로 있다
             * 코드
                 ```xml
                 <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -462,12 +461,21 @@ _Main text_
                 </style>
                 ```
             * 기본 액티비티 테마 색상
-                * colorPrimaryDark : 잔여 배터리 표시가 있는 그 부분의 바
+                * colorPrimaryDark : 잔여 배터리 표시가 있는 그 부분의 바 (상태바)
+                    - 이 부분을 안보이게 하고 싶다면 액티비티가 이영역까지 차지하도록 하면 된다.
+                        ```xml
+                        <style name="myTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+                            <item name="windowNoTitle">true</item>
+                            <item name="windowActionBar">false</item>
+                            <item name="android:windowFullscreen">true</item> //이 부분이 차지하도록하는 코드
+                        </style>
+                        ```
                 * colorPrimary : 위 바로 및의 바, 어플 이름이 나타나는 곳
                 * textColorPrmary : colorPrimary에 나타나는 어플이름의 색상
                 * windowBackground : 배경 색
-                * navigationBarClolr : 뒤로가기 ,홈 등 키가 있는 곳의 바
-                
+                * navigationBarClolr : 뒤로가기,홈 등 키가 있는 곳, 맨 아래부분 바   
+                   
+
         2. 스타일과 테마 모두 style.xml 파일에 정리하지만 스타일은 layout.xml의 각 뷰로 표현하고 , 테마는 액티비티 자체를 다루므로 AndroidManifest.xml 에 등록한다. 
             
             * 등록 예시 
@@ -476,7 +484,20 @@ _Main text_
                     android:theme="XXX">
                 </application>
                 ```
-        3. 하지만 application 태그에 적용하면 모든 액티비티가 같은 테마를 가지게 된다. 해결책은...?
+        3. application 태그에 적용하면 모든 액티비티가 같은 테마를 가지게 되는데 그중 다른 테마를 적용하고 싶을 때
+            
+            * AndroidManifest.xml의 <application> 의 하위태그 <activity>에 태마를 설정하면 된다.
+                ```xml
+                <activity android:name="MainActivity"
+                          android:theme="@style/AppTheme">
+                </acitivity>
+                ```
+        4. 액티비티 가로세로 고정 방법
+            * 이 역시 AndroidManifest.xml파일의 <activity>태그에 설정한다.
+                * android:screenOrientation
+                    - landscape, 가로방향 고정
+                    - portrait, 세로 방향 고정 
+    
 
 ***
 ## Alert
