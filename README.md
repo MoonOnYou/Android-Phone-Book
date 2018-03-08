@@ -417,6 +417,7 @@ _Main text_
         || 모두 <resources> </resources> 태그 안에 넣으면 된다.
         ```
 3. 스타일 리소스,테마 리소스   
+| 스타일 ,테마 리소스는 values폴더 하위의 style.xml에 값을 주면 된다 
 | 앱 개발시 같은 속성들을 계속 중복하게 되는데 이때 style속성을 이용하면 된다.   
 | 중복되는 속성을 묶으면 스타일 리소스, 중복되는 액티비티를 묶으면 테마 리소스라 부른다.
     * 스타일 리소스 사용방법
@@ -448,8 +449,35 @@ _Main text_
                     <item name="android:textStyle">italic</item>
                 </style>
                 ```
+            
     * 테마 리소스 사용방법    
-    | 액티비티 기본 화면은 라이
+    
+        1. Android의 기본 테마는 라이브러리의 테마를 상속 받은 "AppTheme"이다. style에 가면 다음과 같은 코드가 기본으로 있다
+            * 코드
+                ```xml
+                <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+                    <item name="colorPrimary">@color/colorPrimary</item>
+                    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+                    <item name="colorAccent">@color/colorAccent</item>
+                </style>
+                ```
+            * 기본 액티비티 테마 색상
+                * colorPrimaryDark : 잔여 배터리 표시가 있는 그 부분의 바
+                * colorPrimary : 위 바로 및의 바, 어플 이름이 나타나는 곳
+                * textColorPrmary : colorPrimary에 나타나는 어플이름의 색상
+                * windowBackground : 배경 색
+                * navigationBarClolr : 뒤로가기 ,홈 등 키가 있는 곳의 바
+                
+        2. 스타일과 테마 모두 style.xml 파일에 정리하지만 스타일은 layout.xml의 각 뷰로 표현하고 , 테마는 액티비티 자체를 다루므로 AndroidManifest.xml 에 등록한다. 
+            
+            * 등록 예시 
+                ```xml
+                <application
+                    android:theme="XXX">
+                </application>
+                ```
+        3. 하지만 application 태그에 적용하면 모든 액티비티가 같은 테마를 가지게 된다. 해결책은...?
+
 ***
 ## Alert
 1. 토스트(Toast)
