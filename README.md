@@ -1,29 +1,31 @@
-***
-***
-***
-# android
+# android 
 ***
 ***
 _List_
 ***
 ***
 ## Layout
-1. LinearLayout
-2. RelativeLayout
-3. FrameLayout
+1. LinearLayout   
+-박스(Box)모델,사각형 영역들을 이용해 화면을 구성하는 방법
+2. RelativeLayout   
+-규칙(Rule)기반 모델, 부모컨테이너나 다른 뷰와의 상대적 위치를 이용해 화면을 구성하는 방법
+3. FrameLayout   
+-기본 단위 모델, 하나의 뷰만 모여주는 방법, 가장단순하지만 여러개의 뷰를 추가하는 경우 중첩 시킬 수 있으므로 뷰를 중첩한 후 각 뷰를 전환하여 보여주는 방식으로 사용할 때 유용함
 4. TableLayout
 5. GridLayout
 6. ConstrainLayout
-7. TabHost 
+7. TabHost
+8. 스크롤 뷰   
+-스크롤이 가능한 컨테이너, 뷰 또는 뷰그룹이 들어갈 수 있으며, 화면 영역을 넘어갈 때 그크롤 기능 제공
 ***
 ## Resource
 1. 애니매이션(Animation) 리소스
-2. 크기와 색상 리소스
+2. 크기와 색상 리소스 
 3. 스타일 ,테마 리소스
 ***
 ## For compatibility
 1. "리소스 폴더명에 수식어 붙이기"로 다양하게 호환되는 어플만들기
-2. 다양한 화면 크기에 호환할 수 있는 방법 알아보기
+2. 다양한 화면 크기에 맞춰 호환할 수 있는 방법 알아보기
 ***
 ## Alert
 1. 토스트(Toast)
@@ -47,94 +49,81 @@ _Main text_
 ***
 ***
 ## Layout
+
+* 내가 많이 쓰는 레이아웃 속성
+
+    1. 줄맞춤 
+    * android:baselineAligned="true" / int baselineAligned
+        * false로 설정하면 , 레이아웃으로 그 자식의 baseline을 정렬 할 수 없게됩니다.
+        * 이속성을 이용하면 텍스트 정렬이 우선시 되므로 뷰의 배치가 이상해 질 수 있으니 우선정렬을 무엇으로 할 것인지 고민해야함
+        * 기본값은 true입니다.
+        * ~~" true"또는 " false" 와 같은 부울 값일 수 있습니다.(근데 왜 int 형이지?)~~
+
 1. LinearLayout
-    * Linear의 사전적 의미   
-
-        * 선의, 직선의, 선 모양의, 일직선으로 늘어선
-        * 1차원의, 길이와 관계하는
-        * 실 모양의
-
-    * LinearLayout의 속성 및 값
-        ```
-        * android:orientation
-        | 뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향 
-
-            - vertical
-            - horiznotal
-        ``` 
-        ```
-        * android:gravity
-        | 뷰의 내용을 뷰 영역 내에서 어디에 나타낼지 값으로 지정
-
-        * android:Layout_gravity
-        | LinearLayout영역 내에서 어디에 나타낼지 값으로 지정
-
-            - left
-            - right
-            - top
-            - bottom
-        ```   
-        ```
-        * android:weight
-        | 각 뷰의 값을 기준으로 %개념으로 확장되 여백을 차지하게 되는 속성 
-
-            - 각뷰가 차지하는 면적에 맞게 상대적인 숫자를 값으로 줌
-
-        ```
-    * LinearLayout 사용 TIP
+ 
+    1. 추가 방향
+        * android:orientation - 뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향    
         
-> orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.
+        속성값 | 설명    
+        ------|---------------------------
+        vertical|세로방향으로 추가하기
+        horiznotal|가로방향으로 추가하기
+    
+    2. 위치 선정    
+        * android:gravity - 뷰의 내용을 뷰 영역 내에서 어디에 나타낼지 값으로 지정
+        * android:Layout_gravity - LinearLayout영역 내에서 어디에 나타낼지 값으로 지정
+            - 위 두 속성은 같은 값을 가진다
+            - '|'를 이용하여 2가지 속성을 넣을 수 있다
+        
+        속성값| 설명
+        ----------|---------------------
+        top|대상 객체를 위쪽끝에 배치
+        bottom|대상 객체를 아래쪽끝에 배치
+        left|대상 객체를 왼쪽 끝에 배치
+        center|대상 객체를 수직방향, 수평방향 중앙에 배치
 
-> 단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.
+    3. 공간 가중치 
+        * android:layout_weight - 부모 컨테이너에서 남아있는 여유공간을 여러개의 뷰들에서 어떻게 분할할것인가를 결정
+            - layout_weight에서 각각의 위젯에 할당하는 크기는 위젯이 가지고 있는 크기를 제외한 것임         
 
-> LinearLayout 과 GridLayout만 방향을 지정하는 orientation속성을 제공한다.   
-           
+
+    * TIP  
+        *  orientation속성이 "vertical"이면 세로 방향의 layout_gravity가 적용되지않고, "horizontal"이면 가로 방향의 layout_gravity가 적용되지 않는다.
+        * 단순히 View에서 gravity를 사용하는 방법 말고도, LinearLayout에 gravity를 사용 할 수 있다.
+        * LinearLayout 과 GridLayout만 방향을 지정하는 orientation속성을 제공한다.   
+        * LinearLayout안에 LinearLayout을 넣으면 여러 방향으로 뷰를 설정할 수 있다.   
 
 2. RelativeLayout
-    * RelativeLayout의 속성 및 값
-        ```
-        * android:layout_above
-        * android:layout_below
-        * android:layout_toLeftOf
-        * android:layout_toRightOf
-
-            - 상대성의 의미를 부여할 다른 View의 id 이름을 값으로 줌 (그 View를 기준으로 현재의 View위치가 결정)
-        ```
-        ```
+    1. 줄맞춤
         * android:layout_alignTop
         * android:layout_alignBottom
         * android:layout_alignLeft
         * android:layout_alignRight
         * android:layout_alignBaseline
-        
             - 현재의 View와 변의 시작점을 맞추고 싶은 다른 View의 id 이름을 값으로 줌
-        ```
-        ```
-        * android:layout_alignParentTop
-        | 부모의 윗부분에 뷰의 상단을 위치
 
-        * android:layout_alignParentBottom
-        | 부모의 아랫부분에 뷰의 하단을 위치 
 
-        * android:layout_alignParentLeft
-        | 부모의 왼쪽에 뷰의 왼쪽을 위치
+    2. 부모컨테이너와의 상대적 위치를 이용한 뷰 배치
+        속성|설명
+        -------|---------------------
+        android:layout_alignParentTop|부모컨테이너의 위쪽과 뷰의 위쪽을 맞춤
+        android:layout_alignParentBottom| 부모컨테이너의 아래쪽과 뷰의 아래쪽을 맞춤 
+        android:layout_alignParentLeft|부모컨테이너의 왼쪽끝과 뷰의 왼쪽끝을 맞춤
+        android:layout_alignParentRight|부모컨테이너의 오른쪽끝과 뷰의 오른쪽끝을 맞춤
+        android:layout_centerHorizontal|부모 컨테이너 수평방향 중앙에 배치
+        android:layout_centerVertical|부모 컨테이너 수직방향 중앙에 배치
+        android:layout_centeInrparent|부모 컨테이너 수평과 수직 중앙에 배치 (책에서는 상대레이아웃 안의 상대레이아웃에 이 속성을 주었다.)
+    
+    3. 다른 뷰와의 상대적 위치를 이용한 뷰 배치
+        * android:layout_above
+        * android:layout_below
+        * android:layout_toLeftOf
+        * android:layout_toRightOf
+            - 상대성의 의미를 부여할 다른 View의 id 이름을 값으로 줌 (그 View를 기준으로 현재의 View위치가 결정)
+        
+    * TIP
+        * 레이아웃에 정의된 정보는 순서대로 읽혀 앱에 적용된다. 따라서 첫번째 추가한 버튼 id값을 이용해 두번째 추가한 버튼의 상대적 위치를 결정하는 것은 가능하나 두번 째 추가한 버튼의 id값을 이용해 첫번 째 추가한 버튼의 상대적 위치를 결정하려 할 때는 오류가 날 수 있다.
 
-        * android:layout_alignParentRight
-        | 부모의 오른쪽의 뷰의 오른쪽을 위치
-
-        * android:layout_alignParentHorizontal
-        | 부모의 가로방향 중앙에 뷰를 배치
-
-        * android:layout_alignParentVertical
-        | 부모의 세로 방향 중앙에 뷰를 위치
-
-        * android:layout_alignParent
-        | 부모의 가로세로 중앙에 뷰를 위치
-
-        | | 안드로이드의 스마트폰은 너무 다양하므로 margin과같은 속성을 쓰면 어떤 기기에서는 원하지 않는 다인이 나올 수 있으므로 부모 뷰를 이용한다.
-
-            - true
-        ```
 3. FrameLayout
     * FrameLayout의 특징
         * FrameLayout은 자체의 특별한 속성이 없으며, 레이아웃에 포함된 뷰들을 같은 영역에 겹쳐서 배치할 때 사용한다.
@@ -142,6 +131,8 @@ _Main text_
 
 4. TableLayout
     * TableLayout의 특징
+        * TableRow의 높이 값인 Layout_height는 항상 wrap_content로 설정되 있어야 하며,
+        폭을 지정하는 Layout_width는 match_parent로 설정되어 있어야 한다.
         * 각각의 뷰를 테이블 구조로 나열 할 때 씀
         * 각각의 행(row)을 TableRow로 표현해 주어야함
         * 하나의 뷰가 여러 셀을 차지 할 수도 있고, 여백이 발생 할 경우 열(기둥)을 확장 시킬수도 있다.
@@ -290,7 +281,7 @@ _Main text_
 > "@+id/name"은 id값을 앱의 R.java파일에 등록하여 이용하겠다는 의미이고, "@android:id/tabs"는 안드로이드 라이브러이의 R.java파일에 등록된 것을 이용하겠다는 의미이다.
 ***
 ## Resource
-| 안드로이드의 모든 리소스들은 모두 res폴더 하위에 있어야 하며,개발자가 임의로 폴더명을 지정 할 수 도, 만들수도 없다 (리소스 폴더명 조건 명시법 제외)    
+| 안드로이드의 모든 리소스들은 모두 res폴더 하위에 있어야 하며,개발자가 임의로 폴더명을 지정 할 수 도, 만들수도 없다     
 | 하위폴더에 서브폴더를 만들수도 없다.   
 | 리소스를 추가하는 순간 int형의 임의 변수명으로 R.java파일에 저장된다.
 
@@ -529,8 +520,6 @@ New -> Android Resource directory메뉴를 클릭
 
 ## For compatibility
 1. "리소스 폴더명에 수식어 붙이기"로 다양하게 호환되는 어플만들기
-
-    * 리소스 폴더명 주요 수식어    
 
     * 화면 방향 조건 
         - “land” 수식어를 통해 가로모드 분기한다,"port"는 세로방향   
@@ -812,8 +801,22 @@ New -> Android Resource directory메뉴를 클릭
                 super.onBackPressed();
             }
             ```
-    * 알아두면 좋을 것
-> 
+***
+## 데이터 영속화
+    
+1. SQLite이용하기    
+    * SQLiteDatabase 클래스   
+    | 이 객체를 얻으려면 openOrCrateDatabase() 함수를 이용한다.   
+    | 데이터를 저장하고 가져오는 등 모든 질의문은 이 클래스의 객체를 얻어야 사용 가능하다   
+
+        - 
+        ```java
+        SQLiteDatabase db = openOrCrateDatabase("memodb",MODE_PRIVATE,null);
+        ```
+    * SQLiteOpenHelper   
+    | 추상 클래스이므로 서브클래스를 만들 것
+    | 데이터베이스 관리만을 목적으로 만들어진 클래스로 테이블 생성이나 스키마 변경 등에 사용한다.
+    
 ***
 ## JAVA   
 
