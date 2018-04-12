@@ -6,17 +6,17 @@ _List_
 ***
 ## Layout
 1. LinearLayout   
--박스(Box)모델,사각형 영역들을 이용해 화면을 구성하는 방법
+    - 박스(Box)모델,사각형 영역들을 이용해 화면을 구성하는 방법
 2. RelativeLayout   
--규칙(Rule)기반 모델, 부모컨테이너나 다른 뷰와의 상대적 위치를 이용해 화면을 구성하는 방법
+    - 규칙(Rule)기반 모델, 부모컨테이너나 다른 뷰와의 상대적 위치를 이용해 화면을 구성하는 방법
 3. FrameLayout   
--기본 단위 모델, 하나의 뷰만 모여주는 방법, 가장단순하지만 여러개의 뷰를 추가하는 경우 중첩 시킬 수 있으므로 뷰를 중첩한 후 각 뷰를 전환하여 보여주는 방식으로 사용할 때 유용함
+    - 기본 단위 모델, 하나의 뷰만 모여주는 방법, 가장단순하지만 여러개의 뷰를 추가하는 경우 중첩 시킬 수 있으므로 뷰를 중첩한 후 각 뷰를 전환하여 보여주는 방식으로 사용할 때 유용함
 4. TableLayout
 5. GridLayout
 6. ConstrainLayout
 7. TabHost
 8. 스크롤 뷰   
--스크롤이 가능한 컨테이너, 뷰 또는 뷰그룹이 들어갈 수 있으며, 화면 영역을 넘어갈 때 그크롤 기능 제공
+    - 스크롤이 가능한 컨테이너, 뷰 또는 뷰그룹이 들어갈 수 있으며, 화면 영역을 넘어갈 때 그크롤 기능 제공
 ***
 ## Resource
 1. 애니매이션(Animation) 리소스
@@ -94,35 +94,39 @@ _Main text_
         * LinearLayout안에 LinearLayout을 넣으면 여러 방향으로 뷰를 설정할 수 있다.   
 
 2. RelativeLayout
-    1. 줄맞춤
-        * android:layout_alignTop
-        * android:layout_alignBottom
-        * android:layout_alignLeft
-        * android:layout_alignRight
-        * android:layout_alignBaseline
-            - 현재의 View와 변의 시작점을 맞추고 싶은 다른 View의 id 이름을 값으로 줌
+    1. 다른 뷰와의 상대적 위치를 이용한 뷰 배치  
+    
+    속성 | 설명
+    -------|----------
+    android:layout_above|지정한 뷰의 위쪽에 배치함
+    android:layout_below|지정한 뷰의 아래쪽에 배치함
+    android:layout_toLeftOf|지정한 뷰의 왼쪽에 배치함
+    android:layout_toRightOf|지정한 뷰의 오른쪽에 배치함
+    android:layout_alignTop
 
+    2. 줄 맞춤
+
+    속성 | 설명
+    -----------|----------------
+    android:layout_alignBottom|지정한 뷰의 위쪽과 맞춤
+    android:layout_alignLeft|지정한 뷰의 왼쪽과 맞춤
+    android:layout_alignRight|지정한 뷰의 오른쪽과 맞춤
+    android:layout_alignBaseline|지정한 뷰와 내용물의 아래쪽 기준선(Baseline)을 맞춤
 
     2. 부모컨테이너와의 상대적 위치를 이용한 뷰 배치
-        속성|설명
-        -------|---------------------
-        android:layout_alignParentTop|부모컨테이너의 위쪽과 뷰의 위쪽을 맞춤
-        android:layout_alignParentBottom| 부모컨테이너의 아래쪽과 뷰의 아래쪽을 맞춤 
-        android:layout_alignParentLeft|부모컨테이너의 왼쪽끝과 뷰의 왼쪽끝을 맞춤
-        android:layout_alignParentRight|부모컨테이너의 오른쪽끝과 뷰의 오른쪽끝을 맞춤
-        android:layout_centerHorizontal|부모 컨테이너 수평방향 중앙에 배치
-        android:layout_centerVertical|부모 컨테이너 수직방향 중앙에 배치
-        android:layout_centeInrparent|부모 컨테이너 수평과 수직 중앙에 배치 (책에서는 상대레이아웃 안의 상대레이아웃에 이 속성을 주었다.)
-    
-    3. 다른 뷰와의 상대적 위치를 이용한 뷰 배치
-        * android:layout_above
-        * android:layout_below
-        * android:layout_toLeftOf
-        * android:layout_toRightOf
-            - 상대성의 의미를 부여할 다른 View의 id 이름을 값으로 줌 (그 View를 기준으로 현재의 View위치가 결정)
         
-    * TIP
-        * 레이아웃에 정의된 정보는 순서대로 읽혀 앱에 적용된다. 따라서 첫번째 추가한 버튼 id값을 이용해 두번째 추가한 버튼의 상대적 위치를 결정하는 것은 가능하나 두번 째 추가한 버튼의 id값을 이용해 첫번 째 추가한 버튼의 상대적 위치를 결정하려 할 때는 오류가 날 수 있다.
+    속성|설명
+    -------|---------------------
+    android:layout_alignParentTop|부모컨테이너의 위쪽과 뷰의 위쪽을 맞춤
+    android:layout_alignParentBottom| 부모컨테이너의 아래쪽과 뷰의 아래쪽을 맞춤 
+    android:layout_alignParentLeft|부모컨테이너의 왼쪽끝과 뷰의 왼쪽끝을 맞춤
+    android:layout_alignParentRight|부모컨테이너의 오른쪽끝과 뷰의 오른쪽끝을 맞춤
+    android:layout_centerHorizontal|부모 컨테이너 수평방향 중앙에 배치
+    android:layout_centerVertical|부모 컨테이너 수직방향 중앙에 배치
+    android:layout_centeInrparent|부모 컨테이너 수평과 수직 중앙에 배치 (책에서는 상대레이아웃 안의 상대레이아웃에 이 속성을 주었다.)
+
+    * TIP   
+    레이아웃에 정의된 정보는 순서대로 읽혀 앱에 적용된다. 따라서 첫번째 추가한 버튼 id값을 이용해 두번째 추가한 버튼의 상대적 위치를 결정하는 것은 가능하나 두번 째 추가한 버튼의 id값을 이용해 첫번 째 추가한 버튼의 상대적 위치를 결정하려 할 때는 오류가 날 수 있다.
 
 3. FrameLayout
     * FrameLayout의 특징
@@ -151,35 +155,35 @@ _Main text_
     * GridLayout의 속성 및 값
         ```
         * android:orientation
-        | 뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향
+        - 뷰가 추가되는 방향을 값으로 지정,기본값은 가로방향
 
             - vertical
             - horizontal
         ```
         ```
         * android:columnCount
-        | orientation이 가로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
+        - orientation이 가로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
         
         * android:rowCount
-        | orientation이 세로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
+        - orientation이 세로방향일 때 한줄에 몇개의 뷰를 나열할 건지 값 숫자로 지정
         ```
         ```
         * android:layout_column 
-        | 뷰가 위치할 열 인덱스 지정
+        - 뷰가 위치할 열 인덱스 지정
 
         * android:layout_row
-        | 뷰가 위치할 행 인덱스 지정
+        - 뷰가 위치할 행 인덱스 지정
         ```
         ```
         * android:layout_columnSpan
-        | 로방향으로 여러열을 하나의 뷰가 차지하고자 할 때
+        - 로방향으로 여러열을 하나의 뷰가 차지하고자 할 때
 
         * android:layout_rowSpan
-        | 세로방향으로 여러행을 하나의 뷰가 차지하고자 할 때
+        - 세로방향으로 여러행을 하나의 뷰가 차지하고자 할 때
         ```
         ```
         * android:layout_gravity
-        | span으로 확장된 영역 전체를 차지하게 나오게 할 때
+        - span으로 확장된 영역 전체를 차지하게 나오게 할 때
 
             - fill
         ```
@@ -279,6 +283,16 @@ _Main text_
 > 자바 코드에서 탭 버튼과 클릭했을 때의 화면은 하나의 TabSpec으로 결합되어 다룬다.   
 
 > "@+id/name"은 id값을 앱의 R.java파일에 등록하여 이용하겠다는 의미이고, "@android:id/tabs"는 안드로이드 라이브러이의 R.java파일에 등록된 것을 이용하겠다는 의미이다.
+
+8. 스크롤뷰
+* 수직 스크롤을 위한 스크롤 뷰
+```
+<ScrollView>  </ScrollView>
+```
+* 수평 스크롤을 위한 스크롤 뷰
+```
+<HorizontalScrollView>  </HorizontalScrollView>
+```
 ***
 ## Resource
 | 안드로이드의 모든 리소스들은 모두 res폴더 하위에 있어야 하며,개발자가 임의로 폴더명을 지정 할 수 도, 만들수도 없다     
@@ -297,7 +311,7 @@ New -> Android Resource directory메뉴를 클릭
         |9-patch PNG|권장됨(무손실)|.9.png| 
         |JPG(Joint Photographic Experts Group)|권장되지 않음(유손실)|.jpg, jpeg| 
         |GIF(Graphics Interchange Format)|사용하지 않는 것을 권장함|.gif|
-        출처: http://hyeonstorage.tistory.com/152 [개발이 하고 싶어요]
+        출처: http://hyeonstorage.tistory.com/152
         
     * layout :화면 UI를 정의한 레이아웃xml
     * values :문자열 ,색상, 크기 등 여러가지 값
