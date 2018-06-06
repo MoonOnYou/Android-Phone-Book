@@ -19,7 +19,17 @@ public class Main3Activity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         //Realm메소드를 초기화하고, 인스턴스를 가져와 멤버변수에 할당해준다
     }
-
+    private void insnertOrUpdateV1(final Student student) {
+        realm.beginTransaction(); //트렌젝션의 시작을 알림
+        if(student.getStudentId() == 0) {
+            Number maxId = realm.where( Student.class ).max( "StudentId" );
+            // 어떤 모델에서 값을 조회할 것인지 설정
+            int nextId = maxId == null ? 1: maxId.intValue() + 1;
+            student.setStudentId( nextId );
+        }
+        realm.insertOrUpdate( student );
+        realm.commitTransaction(); // 트렌젝션의 종료를 알림과 동시에 변경사항을 적용
+    }
     @Override
     protected void onDestroy() {
     super.onDestroy();
