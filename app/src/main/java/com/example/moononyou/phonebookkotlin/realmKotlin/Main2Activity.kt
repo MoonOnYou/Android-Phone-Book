@@ -16,11 +16,13 @@ class Main2Activity : AppCompatActivity() {
         Realm.init(applicationContext)
         realm = Realm.getDefaultInstance()
 
+        //다음은 정보입력코드
         val student1 = Student(1,"박중수",26,4)
         val student2 = Student(2,"박영환",27,4)
 
         insertOrUpdate(student1)
         insertOrUpdate(student2)
+
     }
 
     fun insertOrUpdate(student: Student) {

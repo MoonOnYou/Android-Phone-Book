@@ -19,6 +19,7 @@ public class Main3Activity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         //Realm메소드를 초기화하고, 인스턴스를 가져와 멤버변수에 할당해준다
 
+        //다음은 정보입력 코드
         Student student1 = new Student();
         student1.setStudentId( 1 );
         student1.setName( "박중수" );
