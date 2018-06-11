@@ -2,6 +2,7 @@ package com.example.moononyou.phonebookkotlin.realmJava;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.moononyou.phonebookkotlin.R;
 
@@ -14,10 +15,16 @@ import io.realm.Sort;
 public class Main3Activity extends AppCompatActivity {
 
     private Realm realm; //Realm인스터스 클래스는 전역에서 사용하므로 클래스의 멤버변수로 선언하여 준다.
+    //realm 테스트
+    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main3 );
+
+
+        // realm 테스트
+        textView = (TextView)findViewById(R.id.view_txt);
 
         Realm.init(getApplicationContext());
         realm = Realm.getDefaultInstance();
@@ -39,6 +46,37 @@ public class Main3Activity extends AppCompatActivity {
         insnertOrUpdateV( student1 );
         insnertOrUpdateV( student2 );
 
+        List<Student> studentList = findAll();
+        Student oneStudend = findOndeById( 1 );
+
+        StringBuilder sb = new StringBuilder( );
+        sb.append( "== List == \n" );
+        if(studentList != null) {
+            for (Student student : studentList) {
+                sb.append( student.getStudentId() )
+                        .append( ". " )
+                        .append( student.getName() )
+                        .append( " - " )
+                        .append( student.getAge() )
+                        .append( "살 - " )
+                        .append( student.getGrade() )
+                        .append( "학년\n" );
+            }
+        }
+
+        if(oneStudend != null) {
+            sb.append( "\n\n==Select One==\n\n" )
+                    .append( oneStudend.getStudentId() )
+                    .append( ". " )
+                    .append( oneStudend.getName() )
+                    .append( " - " )
+                    .append( oneStudend.getAge() )
+                    .append( "살 - " )
+                    .append( oneStudend.getGrade())
+                    .append( "학년\n" );
+        }
+
+        textView.setText( sb.toString() );
     }
 
 
