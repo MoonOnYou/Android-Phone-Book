@@ -5,7 +5,11 @@ import android.os.Bundle;
 
 import com.example.moononyou.phonebookkotlin.R;
 
+import java.util.List;
+
 import io.realm.Realm;
+import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class Main3Activity extends AppCompatActivity {
 
@@ -36,6 +40,8 @@ public class Main3Activity extends AppCompatActivity {
         insnertOrUpdateV( student2 );
 
     }
+
+
     private void insnertOrUpdateV(final Student student) {
         realm.beginTransaction(); //트렌젝션의 시작을 알림
         if(student.getStudentId() == 0) {
@@ -47,6 +53,23 @@ public class Main3Activity extends AppCompatActivity {
         realm.insertOrUpdate( student );
         realm.commitTransaction(); // 트렌젝션의 종료를 알림과 동시에 변경사항을 적용
     }
+
+    private List<Student> findAll(){
+        RealmResults<Student> results = realm.where(Student.class)
+                .findAll()
+                .sort("studentId", Sort.DESCENDING);
+        List<Student> list = results;
+
+        return  list;
+    }
+
+    private Student findOndeById(int studentId){
+        Student results = realm.where(Student.class)
+                .equalTo("studentId",studentId)
+                .findFirst();
+        return results;
+    }
+
     @Override
     protected void onDestroy() {
     super.onDestroy();
