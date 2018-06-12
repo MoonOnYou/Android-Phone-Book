@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.moononyou.phonebookkotlin.R
 import com.example.moononyou.phonebookkotlin.Student
 import io.realm.Realm
+import io.realm.Sort
 
 class Main2Activity : AppCompatActivity() {
     var realm:Realm? = null
@@ -34,6 +35,21 @@ class Main2Activity : AppCompatActivity() {
             }
             realm.insertOrUpdate(student)
         }
+    }
+
+    fun findAll(): List<Student>? {
+        val results = realm?.where(Student::class.java)
+                ?.findAll()
+                ?.sort("student", Sort.DESCENDING)
+
+        return results
+    }
+
+    fun findOneById(studentId: Int): Student? {
+        val result = realm?.where(Student::class.java)
+                ?.findFirst()
+
+        return result
     }
 
     override fun onDestroy() {
