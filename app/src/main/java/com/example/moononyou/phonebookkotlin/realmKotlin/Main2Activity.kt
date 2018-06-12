@@ -2,6 +2,7 @@ package com.example.moononyou.phonebookkotlin.realmKotlin
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.example.moononyou.phonebookkotlin.R
 import com.example.moononyou.phonebookkotlin.Student
 import io.realm.Realm
@@ -14,6 +15,9 @@ class Main2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        //출력 테스트 코드
+        textView = findViewById(R.id.view_txt) as TextView
+
         Realm.init(applicationContext)
         realm = Realm.getDefaultInstance()
 
@@ -23,6 +27,21 @@ class Main2Activity : AppCompatActivity() {
 
         insertOrUpdate(student1)
         insertOrUpdate(student2)
+
+        val studentList = findAll()
+        val oneStudent = findOneById(1)
+
+        val sb = StringBuilder()
+
+        sb.append("==List==\n")
+        studentList?.let {
+            for (student in it) {
+                sb.append(student.studentId())
+                        .append(".")
+                        .append(student.getName())
+                        .append("")
+            }
+        }
 
     }
 
