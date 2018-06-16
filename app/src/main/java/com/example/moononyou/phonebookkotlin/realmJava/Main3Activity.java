@@ -108,6 +108,20 @@ public class Main3Activity extends AppCompatActivity {
         return results;
     }
 
+    // 트렌젝션블록을 이용한 삭제 메소드
+    private void deleteById(final int studentId) {
+        realm.executeTransaction( new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                Student targetStudent = realm.where( Student.class )
+                        .equalTo( "studentId",studentId )
+                        .findFirst();
+
+                targetStudent.deleteFromRealm();
+            }
+        });
+    }
+
     @Override
     protected void onDestroy() {
     super.onDestroy();

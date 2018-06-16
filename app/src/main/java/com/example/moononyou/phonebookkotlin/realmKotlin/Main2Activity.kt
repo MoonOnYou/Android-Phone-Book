@@ -10,6 +10,7 @@ import io.realm.Sort
 
 class Main2Activity : AppCompatActivity() {
     var realm:Realm? = null
+    var textView:TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +37,30 @@ class Main2Activity : AppCompatActivity() {
         sb.append("==List==\n")
         studentList?.let {
             for (student in it) {
-                sb.append(student.studentId())
+                sb.append(student.studentId)
                         .append(".")
-                        .append(student.getName())
-                        .append("")
+                        .append(student.name)
+                        .append(" - ")
+                        .append(student.age)
+                        .append("살 - ")
+                        .append(student.grade)
+                        .append("학년\n")
             }
         }
 
+        oneStudent?.let {
+            sb.append("\n\n== Select One ==\n")
+                    .append(oneStudent.studentId)
+                    .append(". ")
+                    .append(oneStudent.name)
+                    .append(" - ")
+                    .append(oneStudent.age)
+                    .append("살 - ")
+                    .append(oneStudent.grade)
+                    .append("학년\n")
+        }
+
+        textView?.text = sb.toString()
     }
 
     fun insertOrUpdate(student: Student) {
@@ -59,16 +77,28 @@ class Main2Activity : AppCompatActivity() {
     fun findAll(): List<Student>? {
         val results = realm?.where(Student::class.java)
                 ?.findAll()
-                ?.sort("student", Sort.DESCENDING)
+                ?.sort("studentId", Sort.DESCENDING)
 
         return results
     }
 
     fun findOneById(studentId: Int): Student? {
         val result = realm?.where(Student::class.java)
+                ?.equalTo("studentId",studentId)
                 ?.findFirst()
 
         return result
+    }
+
+    // 트렌젝션블록을 이용한 삭제 메소드
+    private fun deleteById(studentId: Int) {
+        realm?.executeTransaction {
+            val targetStudent = it.where(Student::class.java)
+                    .equalTo("studentId",studentId)
+                    .findFirst()
+
+            targetStudent.deleteFromRealm()
+        }
     }
 
     override fun onDestroy() {
